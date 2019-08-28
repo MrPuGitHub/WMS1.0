@@ -36,7 +36,7 @@
             <option value ="调度">调度</option>
             <option value ="打单">打单</option>
             <option value="拣货">拣货</option>
-            <option value="复核">复核</option>
+            <option value="复核">复核</option> 
             <option value="包装">包装</option>
             <option value="交接发货">交接发货</option>
             <option value="测试">测试</option>

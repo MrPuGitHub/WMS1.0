@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
-
+ 
 
 </head>
 
