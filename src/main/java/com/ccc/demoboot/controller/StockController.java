@@ -10,5 +10,7 @@ public class StockController {
     @RequestMapping("/main")
     public String main(){
         return "store/main";
+
+        
     }
 }
