@@ -117,7 +117,12 @@
 
 
     </div>
-    <div class="col-md-10">.col-md-9</div>
+    <div class="col-md-10">
+
+        <!--此处为页面内容代码-->
+
+
+    </div>
 
 </div>
 
