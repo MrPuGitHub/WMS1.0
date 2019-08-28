@@ -21,7 +21,7 @@
 <body>
 
 <!--头部导航-->
-<div class="ui inverted menu">
+<div class="ui inverted menu" style="margin-bottom: 5px">
     <a class="item ui">
         <img src="/images/1.png" style="width: 40px;height: 40px">
     </a>
@@ -83,7 +83,7 @@
 <div class="row">
     <div class="col-md-2">
 
-        <div class="ui left vertical menu">
+        <div class="ui left relaxed vertical menu" style="background-color: red;height: 91%">
             <div class="item">
                 <div class="header">入库管理</div>
                 <div class="menu">
@@ -120,6 +120,8 @@
     <div class="col-md-10">
 
         <!--此处为页面内容代码-->
+
+        <iframe></iframe>
 
 
     </div>
