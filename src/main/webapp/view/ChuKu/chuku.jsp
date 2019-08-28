@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
- 
+
 
 </head>
 
@@ -23,7 +23,7 @@
 <body>
 
 
-    <div style="text-align: center">
+    <div style="text-align: center" >
 
         <form>
 
@@ -33,13 +33,12 @@
 
             状态:
             <select class="form-control" style="display: inline-block; width: 150px">
-                <option value ="调度">调度</option>
-                <option value ="打单">打单</option>
-                <option value="拣货">拣货</option>
-                <option value="复核">复核</option>
-                <option value="包装">包装</option>
-                <option value="交接发货">交接发货</option>
-                <option value="测试">测试</option>
+                <option value ="调度">测试调度</option>
+                <option value ="打单">测试打单</option>
+                <option value="拣货">测试拣货</option>
+                <option value="复核">测试复核</option>
+                <option value="包装">测试包装</option>
+                <option value="交接发货">测试交接发货</option>
             </select>
 
             时间:<input type="date" class="form-control" style="display: inline-block; width: 150px" placeholder="开始时间"/>到<input type="date" class="form-control" style="display: inline-block; width: 150px" placeholder="结束时间"/>
@@ -55,7 +54,6 @@
     <table class="table  table-bordered">
         <%--表格没列的头部--%>
         <tr>
-            <td><input type="checkbox"/></td>
             <td>单号</td>
             <td>发货时间</td>
             <td>状态</td>
@@ -63,88 +61,23 @@
             <td>操作</td>
         </tr>
 
-        <%--遍历获取到的发货单集合fhList开始--%>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick="window.location.href='ChuKuWork.jsp'"/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"/></td>
-                <td>111</td>
-                <td>2019.9.2</td>
-                <td>复核</td>
-                <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
-            </tr>
-            <%--遍历获取到的发货单集合fhList结束--%>
+        <%--遍历获取到的发货单集合chuKuDanList开始--%>
+
+            <c:forEach items="${chuKuDanList}" var="v">
+
+                <tr>
+                    <td>${v.chukuid}</td>
+                    <td>${v.outtime.getYear()+1900}年${v.outtime.getMonth()}月${v.outtime.getDay()}日</td>
+                    <td>${v.state}</td>
+                    <td>${v.userid}</td>
+                    <td>
+                        <button onclick="window.location.href='/view/ChuKu/ChuKuWork.jsp'" class="btn btn-primary">查看</button>
+                    </td>
+                </tr>
+
+            </c:forEach>
+
+        <%--遍历获取到的发货单集合chuKuDanList结束--%>
 
     </table>
 
