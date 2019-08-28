@@ -1,4 +1,7 @@
 
+
+<%--此页面用于显示出库单列表--%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
@@ -8,7 +11,7 @@
 <head>
 
 
-    <title>出库管理</title>
+    <title>出库单列表</title>
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
@@ -67,7 +70,7 @@
                 <td>2019.9.2</td>
                 <td>复核</td>
                 <td>1</td>
-                <td><input type="submit" class="btn btn-primary" value="查看" onclick=""/></td>
+                <td><input type="submit" class="btn btn-primary" value="查看" onclick="window.location.href='ChuKuWork.jsp'"/></td>
             </tr>
             <tr>
                 <td><input type="checkbox"/></td>
