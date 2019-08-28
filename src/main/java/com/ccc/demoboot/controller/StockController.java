@@ -11,6 +11,6 @@ public class StockController {
     public String main(){
         return "store/main";
 
-        
+
     }
 }
