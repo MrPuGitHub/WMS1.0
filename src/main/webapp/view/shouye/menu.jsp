@@ -24,7 +24,7 @@
 <h3 style="text-align: center"><a href="#"  aria-label="Previous" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/ruku.jpg"style="height: 35px;">入库管理</a></h3>
 <h3 style="text-align: center"><a href="#" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/yiku.jpg"style="height: 35px;">移库管理</a></h3>
 <h2 style="margin-left: 25px">货物</h2>
-<h3 style="text-align: center"><a href="#" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/tuihuo.jpg"style="height: 35px;">退货管理</a></h3>
+<h3 style="text-align: center"><a href="view/mrb/mrbguanli.jsp" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/tuihuo.jpg"style="height: 35px;">退货管理</a></h3>
 <h2 style="margin-left: 25px">管理</h2>
 <h3 style="text-align: center"><a href="http://localhost:8095/pandian" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/pandian.jpg"style="height: 35px;">盘点</a></h3>
 <h3 style="text-align: center"><a href="#" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/tongji.jpg"style="height: 35px;">统计查询</a></h3>
