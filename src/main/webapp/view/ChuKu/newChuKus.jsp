@@ -27,9 +27,9 @@
         <%--打印所有订单--%>
         <h2 style="text-align: center">订单信息</h2>
 
-        <c:forEach items="${}" var="v">
+        <%--<c:forEach items="${}" var="v">--%>
 
-        </c:forEach>
+        <%--</c:forEach>--%>
 
         <button type="button" class="btn btn-primary" style="text-align: center" onclick="window.location.href='xxxx'">
             生成发货单</button>

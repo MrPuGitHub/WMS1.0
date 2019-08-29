@@ -82,6 +82,14 @@
     </table>
 
 
+        ${pageInfo}
+        总记录${pageInfo.total}条,共${pageInfo.pages},当前页${pageInfo.pageNum}
+        <br/>
+
+        <button onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum-1}'">上一页</button>
+        <button  onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum+1}'">下一页</button>
+        `
+
 
 </body>
 </html>
