@@ -1,4 +1,4 @@
-package com.ccc.demoboot.controller;
+package com.ccc.demoboot.Controller;
 
 
 import com.ccc.demoboot.domain.ChuKuDan;
