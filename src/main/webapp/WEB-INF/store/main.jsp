@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>入库管理</title>
 </head>
 <script src="/js/jquery-1.11.0.min.js"></script>
 <script src="/js/jquery.form.js"></script>
@@ -21,72 +21,30 @@
 <body>
 
 <!--头部导航-->
-<div class="ui inverted menu" style="margin-bottom: 5px">
+<div class="ui inverted menu" style="margin-bottom: 0px">
     <a class="item ui">
-        <img src="/images/1.png" style="width: 40px;height: 40px">
+        <img src="/images/store/logo.svg" style="width: 40px;height: 40px">
     </a>
     <a class="item">
-        Messages
+        仓库管理
     </a>
-    <a class="item">
-        Friends
-    </a>
+
+    <div class="right menu">
+        <a class="item ui " href="/me"><img src="/images/store/sign-up.svg" class="img-circle" style="width: 40px;height: 40px"></a>
+        <a class="item" href="/exit">退出 </a>
+    </div>
 </div>
 
-<!--侧边导航-->
-<%--<div class="ui left floated vertical menu" style="height: auto">--%>
 
-<%--    <div class="ui vertical menu">--%>
-<%--        <div class="item">--%>
-<%--            <div class="header">Products</div>--%>
-<%--            <div class="menu">--%>
-<%--                <a class="item">Enterprise</a>--%>
-<%--                <a class="item">Consumer</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="item">--%>
-<%--            <div class="header">CMS Solutions</div>--%>
-<%--            <div class="menu">--%>
-<%--                <a class="item">Rails</a>--%>
-<%--                <a class="item">Python</a>--%>
-<%--                <a class="item">PHP</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="item">--%>
-<%--            <div class="header">Hosting</div>--%>
-<%--            <div class="menu">--%>
-<%--                <a class="item">Shared</a>--%>
-<%--                <a class="item">Dedicated</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="item">--%>
-<%--            <div class="header">Support</div>--%>
-<%--            <div class="menu">--%>
-<%--                <a class="item">E-mail Support</a>--%>
-<%--                <a class="item">FAQs</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
+<div class="row" style="padding-top: 0px">
+    <div class="col-md-2" style="margin-right: 0px;padding: 0px;padding-left: 10px">
 
-
-<%--<div class="ui left floating vertical menu">--%>
-<%--    <div class="item">--%>
-<%--        <img class="ui mini image" src="/images/1.png">--%>
-<%--    </div>--%>
-<%--    <a class="item">入库管理</a>--%>
-<%--    <a class="item">Testimonials</a>--%>
-<%--    <a class="item">Sign-in</a>--%>
-<%--</div>--%>
-
-
-<div class="row">
-    <div class="col-md-2">
-
-        <div class="ui left relaxed vertical menu" style="background-color: red;height: 91%">
-            <div class="item">
-                <div class="header">入库管理</div>
-                <div class="menu">
+        <div class="ui left vertical inverted menu" style="height: 91%;width: 542px">
+            <div class="item icon">
+                <div class="header">
+                    入库管理</div>
+                <div class="menu ">
+                    <i class="paper plane"></i>
                     <a class="item">新建入库</a>
                     <a class="item">入库列表</a>
                 </div>
@@ -117,19 +75,25 @@
 
 
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10" style="padding-left: 5px">
 
         <!--此处为页面内容代码-->
 
-        <iframe></iframe>
+
+<%--        height="300" width="500"--%>
+<%--        <iframe src="/store/nav" name="storemain" scrolling="no" style="height: 91%;width: 100%;background-color: blue;" >--%>
+<%--            --%>
+<%--        </iframe>--%>
+
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="/store/nav" name="storemain"style="background-color: #0d71bb"></iframe>
+        </div>
 
 
     </div>
 
 </div>
-
-
-
 
 
 </body>
