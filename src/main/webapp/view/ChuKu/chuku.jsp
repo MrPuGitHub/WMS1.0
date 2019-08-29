@@ -29,7 +29,7 @@
 
             <h2>当前位置:仓库管理 -> 出库管理</h2>
 
-            发货单号<input type="text" class="form-control" style="display: inline-block; width: 150px" placeholder="请输入发货单号">
+            发货单号<input type="text" class="form-control" style="display: inline-block; width: 150px" placeholder="请输入发货单号" name="faHuoDanId">
 
             状态:
             <select class="form-control" style="display: inline-block; width: 150px">
@@ -81,14 +81,17 @@
 
     </table>
 
+        <div style="text-align: center;">
 
-        ${pageInfo}
-        总记录${pageInfo.total}条,共${pageInfo.pages},当前页${pageInfo.pageNum}
-        <br/>
+            总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
+            <br/>
 
-        <button onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum-1}'">上一页</button>
-        <button  onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum+1}'">下一页</button>
-        `
+            <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum-1}'">上一页</button>
+            <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum+1}'">下一页</button>
+            `
+
+        </div>
+
 
 
 </body>

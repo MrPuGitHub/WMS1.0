@@ -20,7 +20,7 @@ public class LoginController {
     public String Login() {
 
 
-        return "/view/shouye/login";
+        return "/shouye/login";
     }
 
     @RequestMapping(value = "/checkLogin")
@@ -38,11 +38,11 @@ public class LoginController {
         if (user != null) {
             request.setAttribute("user", user);
             System.out.println("登陆成功");
-            return "/view/shouye/first";
+            return "/shouye/first";
         } else {
             request.getSession().setAttribute("ms", "用户名或密码错误");
         }
-        return "/view/shouye/login";
+        return "/shouye/login";
     }
 
 
@@ -56,7 +56,7 @@ public class LoginController {
     @RequestMapping(value = "top")
     public String top() {
 
-        return "/view/shouye/top";
+        return "/shouye/top";
     }
 
 
@@ -64,13 +64,13 @@ public class LoginController {
     public String menu() {
 
 
-        return "/view/shouye/menu";
+        return "/shouye/menu";
     }
 
     @RequestMapping(value = "right")
     public String right() {
 
-        return "/view/shouye/right";
+        return "/shouye/right";
     }
 
 

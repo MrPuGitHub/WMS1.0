@@ -45,7 +45,7 @@
                         placeholder="请输入盘点单号">
             <input type="submit" class="btn btn-primary" value="查询"/>
 
-            <input type="submit" class="btn btn-primary" value="生成盘点单" onclick="window.open('pandiandan.jsp')"/>
+            <input type="submit" class="btn btn-primary" value="生成盘点单" onclick="window.open('view/PanDian/pandiandan.jsp')"/>
         </div>
     </form>
 
@@ -68,7 +68,7 @@
             <td>喂喂喂</td>
             <td>2019-8-28</td>
             <td><input type="submit" class="btn btn-primary" value="查看"
-                       onclick="window.location.href='pandian-detail.jsp'"/>
+                       onclick="window.location.href='view/PanDian/pandian-detail.jsp'"/>
             </td>
         </tr>
     </table>

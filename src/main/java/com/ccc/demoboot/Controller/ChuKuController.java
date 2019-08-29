@@ -37,6 +37,10 @@ public class ChuKuController {
     @RequestMapping("/chuku/{pageNum}")
     public String chuku(HttpServletRequest request, @PathVariable(value="pageNum") Integer pageNum){
 
+        if(pageNum <= 0){
+            pageNum = 1;
+        }
+
         PageHelper.startPage(pageNum, 5);
 
         List<ChuKuDan> chuKuDanList = chuKuService.selAllChuKuDan();
@@ -53,8 +57,23 @@ public class ChuKuController {
 
         request.setAttribute("pageInfo",pageInfo);
 
-        return "/view/ChuKu/chuku";
+        return "ChuKu/chuku";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
