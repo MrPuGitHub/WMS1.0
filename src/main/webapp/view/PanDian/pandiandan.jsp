@@ -51,8 +51,10 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">选择库位</label>
                 <div class="col-sm-10">
-                    <select name="address" class="form-control commonbor">
-                        ${addressStr }
+                    <select name="warehouse" class="form-control commonbor">
+              <c:forEach items="${warehouseList}" var="v">
+                  <option>${v.warehouseName}</option>
+              </c:forEach>
                     </select>
                 </div>
             </div>
