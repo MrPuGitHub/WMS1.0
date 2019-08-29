@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccc.demoboot.mapper.EmpMapper">
+  <resultMap id="BaseResultMap" type="com.ccc.demoboot.domain.Emp">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="empname" jdbcType="VARCHAR" property="empname" />
+    <result column="empid" jdbcType="INTEGER" property="empid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, empname, empid
+  </sql>
+
+  <!--<resultMap id="map" type="map">-->
+    <!--<id column="id" property="id"></id>-->
+    <!--<result></result>-->
+
+  <!--</resultMap>-->
+
+
+  <!--<select id="selectAllEmpAndwork" resultMap="map"  >-->
+    <!--SELECT b.id id , a.empname,a.empid,c.workname,d.worknum,c.workcorde from emp a-->
+      <!--LEFT JOIN emp_work b on a.empid=b.empid-->
+      <!--INNER JOIN work c on b.workid=c.id INNER JOIN worktotal d on  c.id=d.workid-->
+  <!--</select>-->
+
+
+</mapper>

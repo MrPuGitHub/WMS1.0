@@ -2,13 +2,14 @@ package com.ccc.demoboot.service;
 
 
 
+import com.ccc.demoboot.domain.Shelf;
 import com.ccc.demoboot.mapper.ShelfMapper;
 
 import java.util.List;
 
-public interface ShelfService {
+public interface MrbService {
 
 
-   List<ShelfMapper> selAllShelf ();
+   List<Shelf> selAllShelf ();
 
 }

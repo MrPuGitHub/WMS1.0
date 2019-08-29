@@ -44,29 +44,9 @@
             盘点单号:<input type="text" class="form-control" style="display: inline-block; width: 150px"
                         placeholder="请输入盘点单号">
             <input type="submit" class="btn btn-primary" value="查询"/>
+
+            <input type="submit" class="btn btn-primary" value="生成盘点单" onclick="window.open('view/PanDian/pandiandan.jsp')"/>
         </div>
-
-
-        <%--盘点功能部分--%>
-        <h4>
-            <nav class="breadcrumb">
-                <div class="cl pd-5 bg-1 bk-gray mt-20">
-                    选择盘点计划:
-                    <span class="l" style="margin-left: 50px">
-			<input type="checkbox" checked="checked" id="name" value="name">根据商品盘点
-		</span>
-                    <span class="l" style="margin-left: 50px">
-			<input type="checkbox" id="pos" value="pos">根据货架盘点
-		</span>
-                    <span class="l" style="margin-left: 50px">
-			<input type="checkbox" id="pos2" value="pos2">根据库位盘点
-		</span>&nbsp;&nbsp;
-                    <span class="l">
-			<input type="submit" class="btn btn-primary" value="生成盘点单" onclick="window.open('pandiandan.jsp')"/>
-                    </span>
-                </div>
-            </nav>
-        </h4>
     </form>
 
 
@@ -88,7 +68,7 @@
             <td>喂喂喂</td>
             <td>2019-8-28</td>
             <td><input type="submit" class="btn btn-primary" value="查看"
-                       onclick="window.location.href='pandian-detail.jsp'"/>
+                       onclick="window.location.href='view/PanDian/pandian-detail.jsp'"/>
             </td>
         </tr>
     </table>

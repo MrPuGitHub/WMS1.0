@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 
 @Controller
@@ -18,58 +17,60 @@ public class LoginController {
     UserService userService;
 
     @RequestMapping(value = "/login")
-    public String Login(String name,String password){
+    public String Login() {
 
 
-        return "login";
+        return "/shouye/login";
     }
 
     @RequestMapping(value = "/checkLogin")
-    public String checkLogin(HttpServletRequest request, User us, HttpServletResponse response){
+    public String checkLogin(HttpServletRequest request, User us) {
 
+        Integer userId = us.getId();
+        request.getSession().setAttribute("userId",userId);
         request.getSession().removeAttribute("ms");
-       String name =request.getParameter("name");
-       String password= request.getParameter("password");
-        System.out.println(name+"\t"+password);
-        User user=userService.checkLogin(us.getUsername(),us.getPassword());
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        request.getSession().setAttribute("name",name);
+        System.out.println(name + "\t" + password);
+        User user = userService.checkLogin(name, password);
         System.out.println(user);
-        if(us!=null) {
+        if (user != null) {
             request.setAttribute("user", user);
             System.out.println("登陆成功");
-            return "first";
-        }else{
-           request.getSession().setAttribute("ms","用户名或密码错误");
+            return "/shouye/first";
+        } else {
+            request.getSession().setAttribute("ms", "用户名或密码错误");
         }
-        return"login";
+        return "/shouye/login";
     }
 
 
-
     @RequestMapping(value = "tupian")
-    public String tupian(){
+    public String tupian() {
 
 
         return "zhaopian";
     }
 
     @RequestMapping(value = "top")
-    public String top(){
+    public String top() {
 
-        return "top";
+        return "/shouye/top";
     }
 
 
     @RequestMapping(value = "/menu")
-    public String menu(){
+    public String menu() {
 
 
-        return "menu";
+        return "/shouye/menu";
     }
 
     @RequestMapping(value = "right")
-    public String right(){
+    public String right() {
 
-        return "right";
+        return "/shouye/right";
     }
 
 

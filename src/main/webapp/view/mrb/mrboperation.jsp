@@ -7,12 +7,20 @@
 %>
 <html>
 <head>
-    <title>退货管理</title>
+    <title>退货货架</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
+<br/>
 
 </head>
 <body>
+<h2>当前位置:仓库管理 -> 退货管理 -> 货架
+<%--
+    <input type="submit" class="btn btn-primary" value="返回" onclick="window.open('mrbguanli.jsp')"/>
+--%>
+</h2>
+<br/>
+<br/>
     <%--  <select>
           <option name="op">1号</option>
           <option name="op">2号</option>
@@ -33,7 +41,7 @@
         <tr>
             <c:forEach items="${shelfList}" var="v" varStatus="vs">
             <td>${v.id}</td>
-            <td>${v.goodId}</td>
+            <td>${v.goodid}</td>
             <td>${v.goodamount}</td>
                 <td>${v.warehouseid}</td>
                 <td>${v.shelfposition}</td>
