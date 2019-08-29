@@ -25,7 +25,7 @@
 <h2 style="margin-left: 25px">货物</h2>
 <h3 style="text-align: center"><a href="#" target="main"><img src="<%=path%>/img/tuihuo.jpg"style="height: 35px;">退货管理</a></h3>
 <h2 style="margin-left: 25px">管理</h2>
-<h3 style="text-align: center"><a href="#" target="main"><img src="<%=path%>/img/pandian.jpg"style="height: 35px;">盘点</a></h3>
+<h3 style="text-align: center"><a href="http://localhost:8095/pandian" target="main"><img src="<%=path%>/img/pandian.jpg"style="height: 35px;">盘点</a></h3>
 <h3 style="text-align: center"><a href="#" target="main"><img src="<%=path%>/img/tongji.jpg"style="height: 35px;">统计查询</a></h3>
 <h3 style="text-align: center"><a href="#" target="main"><img src="<%=path%>/img/yuangong.jpg"style="height: 35px;">员工绩效统计</a></h3>
 </div>
