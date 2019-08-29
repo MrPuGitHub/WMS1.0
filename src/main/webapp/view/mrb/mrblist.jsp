@@ -7,14 +7,11 @@
 %>
 <html>
 <head>
-
-
     <title>退货单列表</title>
-
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
+    <br/>
 </head>
-
 <body>
 <h2>当前位置:仓库管理 -> 退货管理
     <input type="submit" class="btn btn-primary" value="返回" onclick="window.open('mrbguanli.jsp')"/>
@@ -29,7 +26,6 @@
 </div>
 <br/>
 <table class="table  table-bordered">
-
     <tr>
         <td><input type="checkbox"/></td>
         <td>退货单编号</td>
@@ -57,13 +53,11 @@
         <td>${v.id}</td>
         <td>2</td>
         <td>2019.9.2</td>
-        <td><input type="submit" class="btn btn-primary" value="操作" onclick="window.open('.jsp')"/></td>
+        <td><input type="submit" class="btn btn-primary" value="操作" onclick="<%=request.getContextPath()%>/mrboperation"/></td>
     </tr>
     </c:forEach>
 </table>
 <input type="submit" class="btn btn-primary" style="margin-left:90%" value="退出"/>
-
-
 
 </body>
 </html>
