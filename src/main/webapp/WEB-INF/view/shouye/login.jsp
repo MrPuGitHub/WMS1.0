@@ -57,15 +57,15 @@
 <br/>
 <br/>
 <br/>
-<form style="text-align: center;" action="<%=path %>/checkLogin" method="post">
+<<form style="text-align: center;" action="<%=path %>/checkLogin" method="post" class="form-horizontal">
     <div class="form-group">
         <label for="exampleInputEmail1"><h3>用户名：</h3></label>
-        <input type="text" name="name" id="exampleInputEmail1" >
+        <input type="text" name="name" id="exampleInputEmail1" placeholder="请输入用户名">
     </div>
     <div class="form-group">
         <span id="span" style="color: red">${ms}</span><br>
         <label for="exampleInputPassword1"><h3>密&nbsp&nbsp&nbsp码：</h3></label>
-        <input type="password" name="password" id="exampleInputPassword1" >
+        <input type="password" name="password" id="exampleInputPassword1"placeholder="请输入密码" >
 
     </div>
     </div>
