@@ -42,9 +42,14 @@
                                placeholder="盘点单生成时间"/>
                 </h4>
             </div>
-
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">选择库位</label>
+                <label class="col-sm-2 control-label">盘点单号</label>
+                <div class="col-sm-10">
+                    <input class="form-control commonbor" name="name" placeholder="输入盘点单编号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">选择库位</label>
                 <div class="col-sm-10">
                     <select name="address" class="form-control commonbor">
                         ${addressStr }
@@ -53,7 +58,7 @@
             </div>
 
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">选择货架</label>
+                <label class="col-sm-2 control-label">选择货架</label>
                 <div class="col-sm-10">
                     <select name="address" class="form-control commonbor">
                         ${addressStr }
@@ -62,7 +67,7 @@
             </div>
 
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">选择商品</label>
+                <label  class="col-sm-2 control-label">选择商品</label>
                 <div class="col-sm-10">
                     <select name="address" class="form-control commonbor">
                         ${addressStr }
@@ -70,6 +75,12 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-sm-2 control-label">实际数量</label>
+                <div class="col-sm-10">
+                    <input class="form-control commonbor" name="name" placeholder="输入盘点得到的实际数量">
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary commonbor">添&nbsp;&nbsp;&nbsp;&nbsp;加</button>
