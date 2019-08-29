@@ -16,6 +16,7 @@ public class ChuKuServiceImpl implements ChuKuService{
 
     @Override
     public List<ChuKuDan> selAllChuKuDan() {
+
         return chuKuDanMapper.selectAll();
     }
 
