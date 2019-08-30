@@ -12,18 +12,33 @@
     id, empname, empid
   </sql>
 
-  <resultMap id="map" type="map">
-    <id column="id" property="id"></id>
-    <result></result>
+  <resultMap id="selAllEmppAndWork" type="com.ccc.demoboot.domain.Emp">
+    <id column="bid" property="id"/>
+    <result column="empname" property="empname"/>
+    <result column="empid" property="empid"/>
+    <association property="empworkobj" javaType="com.ccc.demoboot.domain.EmpWork">
+      <id column="bid" property="id"/>
 
+    </association>
+    <collection property="workList" javaType="list" ofType="com.ccc.demoboot.domain.Work">
+        <id column="cid" property="id"/>
+       <result column="workname" property="workname"/>
+      <result column="worknum" property="worknum"/>
+      <result column="workcorde" property="workcorde"/>
+    </collection>
   </resultMap>
 
 
-  <select id="selectAllEmpAndwork" resultMap="map"  >
-    SELECT b.id id, a.empname,a.empid,c.workname,c.worknum,c.workcorde from emp a
-      LEFT JOIN emp_work b on a.empid=b.empid INNER JOIN work c on b.workid=c.id
-
+  <select id="selectAllEmpAndwork" resultMap="selAllEmppAndWork" parameterType="com.ccc.demoboot.domain.Emp">
+    SELECT a.id aid, a.empname,a.empid,b.id bid,c.id cid,c.workname,c.worknum,c.workcorde from emp a
+      INNER JOIN emp_work b on a.empid=b.empid INNER JOIN work c on b.workid=c.id <if test="empname!=null and empname!='%null%'">
+    where a.empname like #{empname}
+  </if>
   </select>
+
+
+
+
 
 
 </mapper>

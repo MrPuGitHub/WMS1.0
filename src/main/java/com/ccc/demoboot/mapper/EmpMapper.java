@@ -9,5 +9,7 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface EmpMapper extends Mapper<Emp> {
 
-   List<Emp> selectAllEmpAndwork();
+   List<Emp> selectAllEmpAndwork(Emp emp);
+
+
 }
