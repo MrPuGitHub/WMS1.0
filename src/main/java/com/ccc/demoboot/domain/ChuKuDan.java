@@ -19,6 +19,8 @@ public class ChuKuDan {
 
     private Integer orderid;
 
+    private Integer sendorderid;
+
     public Integer getId() {
         return id;
     }
@@ -82,4 +84,14 @@ public class ChuKuDan {
     public void setOrderid(Integer orderid) {
         this.orderid = orderid;
     }
+
+    public Integer getSendorderid() {
+        return sendorderid;
+    }
+
+    public void setSendorderid(Integer sendorderid) {
+        this.sendorderid = sendorderid;
+    }
+
+
 }

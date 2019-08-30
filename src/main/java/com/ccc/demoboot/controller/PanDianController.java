@@ -1,4 +1,8 @@
-package com.ccc.demoboot.Controller;
+
+package com.ccc.demoboot.controller;
+
+
+import com.ccc.demoboot.common.Compagesize;
 import com.ccc.demoboot.domain.PanyinPankui;
 import com.ccc.demoboot.domain.Shelf;
 import com.ccc.demoboot.domain.Warehouse;
@@ -66,7 +70,7 @@ public class PanDianController {
 
     @RequestMapping(value = "/panyinpankui/{pageNum}")
     public String panyinpankui(HttpServletRequest req,@PathVariable(value = "pageNum") int pageNum) {
-        int pageSize =MyProperties.getPagesize();// 每页显示的条数
+        int pageSize = Compagesize.getPagesize();// 每页显示的条数
         PageHelper.startPage(pageNum, pageSize);
 
         List<PanyinPankui> panyinpankuiList = panyinPankuiService.selectAllPanyinPankui();

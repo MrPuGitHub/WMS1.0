@@ -12,7 +12,6 @@ String basePath = request.getScheme() + "://"
     <script type="text/javascript" src="<%=path%>/js/jquery-1.4.2.js"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Document</title>
-
 </head>
 <frameset rows="8%,*" border="1px" >
     <frame src="http://localhost:8095/top" noresize="noresize">

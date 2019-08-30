@@ -19,7 +19,7 @@
 <body style="background-color:rgb(235,240,254) ">
 <div style="padding-top: 35px">
 <h2 style="margin-left: 25px">出入</h2>
-<h3 style="text-align: center"><a href="https://www.baidu.com/" target="main"> <img src="<%=path%>/img/chuku.jpg"style="height: 35px;">出库管理</a></h3>
+<h3 style="text-align: center"><a href="<%=path%>/view/Chuku/ChuKuGuanLi.jsp" target="main"> <img src="<%=path%>/img/chuku.jpg"style="height: 35px;">出库管理</a></h3>
 <h3 style="text-align: center"><a href="#" target="main"><img src="<%=path%>/img/ruku.jpg"style="height: 35px;">入库管理</a></h3>
 <h3 style="text-align: center"><a href="#" target="main"><img src="<%=path%>/img/yiku.jpg"style="height: 35px;">移库管理</a></h3>
 <h2 style="margin-left: 25px">货物</h2>

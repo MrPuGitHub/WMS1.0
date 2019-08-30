@@ -23,14 +23,16 @@
 <!--头部导航-->
 <div class="ui inverted menu" style="margin-bottom: 0px">
     <a class="item ui">
-        <img src="/images/store/logo.svg" style="width: 40px;height: 40px">
+
+
+        <img src="/img/store/logo.svg" style="width: 40px;height: 40px">
     </a>
     <a class="item">
         仓库管理
     </a>
 
     <div class="right menu">
-        <a class="item ui " href="/me"><img src="/images/store/sign-up.svg" class="img-circle" style="width: 40px;height: 40px"></a>
+        <a class="item ui " href="/me"><img src="/img/store/sign-up.svg" class="img-circle" style="width: 40px;height: 40px"></a>
         <a class="item" href="/exit">退出 </a>
     </div>
 </div>

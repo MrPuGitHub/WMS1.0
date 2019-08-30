@@ -91,7 +91,7 @@
                 </c:choose>
             </c:forEach>
 
-            <li><a onclick="nextpage(${pageInfo.pages})" href="javascript:void(0)" aria-label="Next"> <span
+            <li><a onclick="window.location.href='<%=path%>/panyinpankui/${pageInfo.pages}'" href="javascript:void(0)" aria-label="Next"> <span
                     aria-hidden="true">末页</span>
             </a></li>
         </ul>
