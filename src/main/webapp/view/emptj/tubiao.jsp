@@ -15,8 +15,8 @@
 <html>
 <head>
 <body>
-<div style="text-align: center">
-<a href="http://localhost:8095/selAllempandwork/1" target="main"><img src="<%=path%>/img/yuangong.jpg"style="height: 50px;"></a>
+<div style="text-align: center;padding-top: 350px">
+<a href="http://localhost:8095/selAllempandwork/1" target="main"><img  src="<%=path%>/img/yuangong.jpg"style="height: 200px;background-color:#269abc"  class="img-circle"></a>
 </div>
 </body>
 </html>

@@ -68,7 +68,7 @@
                     </c:forEach>
 
 
-                    <td> <a type="button"  href="<%=path%>/deletebyid?id=${v.id}" class="btn btn-danger btn-sm">
+                    <td> <a type="button" href="<%=path%>/deleteempbyId?id=${v.id}" class="btn btn-danger btn-sm">
                         <span class="" aria-hidden="true" ></span>
                         删除</a>
                         <button type="button" class="btn btn-info"
@@ -111,9 +111,8 @@
                             <span aria-hidden="true">尾页</span>
                         </a>
                         <td><button type="button" class="btn btn-info"
-                                    onclick="location.href='<%=path%>/addstu'">增加</button>
-                            <button type="button" class="btn btn-info"
-                                    onclick="location.href='<%=path%>/updatestu?id=${v.id }'">批量修改</button>
+                                    onclick="location.href='<%=path%>/addEmp'">增加</button>
+
                             <button type="button" class="btn btn-danger">批量删除</button></td>
 
                     </li>

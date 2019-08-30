@@ -20,4 +20,10 @@ public class EmpServiceImpl implements EmpService{
         return empMapper.selectAllEmpAndwork(emp);
     }
 
+    @Override
+    public int InsertEmp(Emp emp) {
+        return empMapper.insertSelective(emp);
+    }
+
+
 }

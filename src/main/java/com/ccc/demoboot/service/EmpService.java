@@ -8,6 +8,5 @@ public interface EmpService{
 
     List<Emp> selectAllEmpAndwork(Emp emp);
 
-
-
+    int  InsertEmp(Emp emp);
 }
