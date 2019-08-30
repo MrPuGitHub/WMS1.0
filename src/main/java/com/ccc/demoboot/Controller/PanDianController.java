@@ -1,12 +1,16 @@
 package com.ccc.demoboot.Controller;
-
 import com.ccc.demoboot.domain.PanyinPankui;
 import com.ccc.demoboot.domain.Shelf;
 import com.ccc.demoboot.domain.Warehouse;
+import com.ccc.demoboot.myproperties.MyProperties;
 import com.ccc.demoboot.service.PanyinPankuiService;
 import com.ccc.demoboot.service.ShelfService;
 import com.ccc.demoboot.service.WarehouseService;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -52,6 +56,27 @@ public class PanDianController {
     public String add(HttpServletRequest req, PanyinPankui record) {
 
         panyinPankuiService.insert(record);
-        return "PanDian/pandiandan";
+
+        return "redirect:/panyinpankui/1";
     }
+
+    /**
+     * 查询盘点单明细
+     */
+
+    @RequestMapping(value = "/panyinpankui/{pageNum}")
+    public String panyinpankui(HttpServletRequest req,@PathVariable(value = "pageNum") int pageNum) {
+        int pageSize =MyProperties.getPagesize();// 每页显示的条数
+        PageHelper.startPage(pageNum, pageSize);
+
+        List<PanyinPankui> panyinpankuiList = panyinPankuiService.selectAllPanyinPankui();
+        PageInfo pageInfo=new PageInfo(panyinpankuiList);
+
+        req.setAttribute("panyinpankuiList", panyinpankuiList);
+        req.setAttribute("pageInfo", pageInfo);
+
+        return "PanDian/pandian-detail";
+    }
+
+
 }

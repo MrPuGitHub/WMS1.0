@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
 
-
 </head>
 
 
@@ -70,7 +69,7 @@
             <td>喂喂喂</td>
             <td>2019-8-28</td>
             <td><input type="submit" class="btn btn-primary" value="查看"
-                       onclick="window.location.href='view/PanDian/pandian-detail.jsp'"/>
+                       onclick="window.location.href='<%=path%>/panyinpankui/1'"/>
             </td>
         </tr>
     </table>

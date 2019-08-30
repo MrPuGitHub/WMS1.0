@@ -9,9 +9,9 @@ public class MyProperties {
 
     private int age;
     private String name;
-    private int pagesize;
+    private static int pagesize;
 
-    public int getPagesize() {
+    public static int getPagesize() {
         return pagesize;
     }
 
