@@ -1,29 +1,32 @@
 package com.ccc.demoboot.domain;
 
+import org.springframework.data.annotation.Id;
+
 public class Shelf {
     /**
-    * 货架编号，主键，递增
-    */
+     * 货架编号，主键，递增
+     */
+    @Id
     private Integer id;
 
     /**
-    * 商品id
-    */
+     * 商品id
+     */
     private Integer goodid;
 
     /**
-    * 指定id的商品对应的本区库存数量
-    */
+     * 指定id的商品对应的本区库存数量
+     */
     private Integer goodamount;
 
     /**
-    * 货架所属的仓库id
-    */
+     * 货架所属的仓库id
+     */
     private Integer warehouseid;
 
     /**
-    * 货架位置名称
-    */
+     * 货架位置名称
+     */
     private String shelfposition;
 
     public Integer getId() {

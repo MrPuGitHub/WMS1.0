@@ -1,6 +1,8 @@
 package com.ccc.demoboot.domain;
 
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.util.List;
 
 public class Emp {
 
@@ -10,6 +12,28 @@ public class Emp {
     private String empname;
 
     private Integer empid;
+
+    @Transient
+    private EmpWork empworkobj;
+
+    @Transient
+    private List<Work> workList;
+
+    public List<Work> getWorkList() {
+        return workList;
+    }
+
+    public void setWorkList(List<Work> workList) {
+        this.workList = workList;
+    }
+
+    public EmpWork getEmpworkobj() {
+        return empworkobj;
+    }
+
+    public void setEmpworkobj(EmpWork empworkobj) {
+        this.empworkobj = empworkobj;
+    }
 
     public Integer getId() {
         return id;

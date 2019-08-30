@@ -39,9 +39,10 @@
 <table id="ck-table" class="table table-border table-bordered table-bg">
     <tr class="text-c">
         <td width="70">序号</td>
+        <td width="70">仓库名</td>
+        <td width="70">货架号</td>
         <td width="70">产品编号</td>
         <td width="100">品名</td>
-        <td width="100">规格型号</td>
         <td width="50">单位</td>
         <td width="80">账面数量</td>
         <td width="80">盘点数量</td>
@@ -54,6 +55,7 @@
     <%--遍历获取到的发货单集合fhList开始--%>
     <tr class="text-c">
         <td width="70">1</td>
+        <td width="70">仓库一号</td>
         <td width="70">3333</td>
         <td width="100">品名</td>
         <td width="100">规格型号</td>
