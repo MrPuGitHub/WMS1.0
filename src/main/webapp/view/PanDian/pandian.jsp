@@ -23,7 +23,7 @@
 
 <div style="text-align: center">
 
-    <form>
+    <form action="<%=path%>/view/PanDian/pandiandan.jsp">
         <%--头部--%>
         <h2>
             <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 当前位置:
@@ -44,18 +44,19 @@
             盘点单号:<input type="text" class="form-control" style="display: inline-block; width: 150px"
                         placeholder="请输入盘点单号">
             <input type="submit" class="btn btn-primary" value="查询"/>
-
-            <input type="submit" class="btn btn-primary" value="生成盘点单" onclick="window.open('view/PanDian/pandiandan.jsp')"/>
         </div>
+
     </form>
-
-
+    <div>
+        <input type="submit" class="btn btn-primary" value="生成盘点单"  onclick="window.location.href='<%=path%>/warehouse'"/>
+    </div>
     <%--表格部分--%>
     <table class="table  table-bordered" style="align-content: center">
         <tr class="text-c">
             <td width="25">
                 <input type="checkbox">
             </td>
+            <td>序号</td>
             <td>盘点单</td>
             <td>盘点人</td>
             <td>盘点时间</td>
@@ -64,6 +65,7 @@
         <%--遍历--%>
         <tr>
             <td><input type="checkbox"/></td>
+            <td>1</td>
             <td>111</td>
             <td>喂喂喂</td>
             <td>2019-8-28</td>

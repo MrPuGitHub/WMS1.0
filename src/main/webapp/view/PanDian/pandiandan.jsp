@@ -32,27 +32,29 @@
     <br>
     <br>
     <div style="width: 400px; margin: 0px auto;">
-        <form class="form-horizontal" action="<%=path %>/addviewsub" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<%=path %>/add" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <h4>
                     盘点人:<input type="text" class="form-control" style="display: inline-block; width: 150px"
-                               placeholder="请输入盘点人姓名">&nbsp;&nbsp;
+                               placeholder="请输入盘点人姓名" name="pdname"/>&nbsp;&nbsp;
 
                     时间: <input type="date" class="form-control" id="datemin" style="display: inline-block; width: 150px"
-                               placeholder="盘点单生成时间"/>
+                               placeholder="盘点单生成时间" name=" "/>
                 </h4>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">盘点单号</label>
                 <div class="col-sm-10">
-                    <input class="form-control commonbor" name="name" placeholder="输入盘点单编号">
+                    <input class="form-control commonbor" name="pandiandanid" placeholder="输入盘点单编号">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">选择库位</label>
                 <div class="col-sm-10">
-                    <select name="address" class="form-control commonbor">
-                        ${addressStr }
+                    <select name="warehouseName" class="form-control commonbor">
+              <c:forEach items="${warehouseList}" var="v">
+                  <option>${v.warehouseName}</option>
+              </c:forEach>
                     </select>
                 </div>
             </div>
@@ -60,8 +62,10 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">选择货架</label>
                 <div class="col-sm-10">
-                    <select name="address" class="form-control commonbor">
-                        ${addressStr }
+                    <select name="shelfposition" class="form-control commonbor">
+                        <c:forEach items="${shelfList}" var="v">
+                            <option>${v.shelfposition}</option>
+                        </c:forEach>
                     </select>
                 </div>
             </div>
@@ -78,7 +82,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">实际数量</label>
                 <div class="col-sm-10">
-                    <input class="form-control commonbor" name="name" placeholder="输入盘点得到的实际数量">
+                    <input class="form-control commonbor" name="pdsl" placeholder="输入盘点得到的实际数量">
                 </div>
             </div>
             <div class="form-group">
