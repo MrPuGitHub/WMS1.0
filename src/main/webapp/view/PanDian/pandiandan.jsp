@@ -32,7 +32,7 @@
     <br>
     <br>
     <div style="width: 400px; margin: 0px auto;">
-        <form class="form-horizontal" action="<%=path %>/addviewsub" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="<%=path %>/add" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <h4>
                     盘点人:<input type="text" class="form-control" style="display: inline-block; width: 150px"
@@ -62,8 +62,10 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">选择货架</label>
                 <div class="col-sm-10">
-                    <select name="address" class="form-control commonbor">
-                        ${addressStr }
+                    <select name="shelf" class="form-control commonbor">
+                        <c:forEach items="${shelfList}" var="v">
+                            <option>${v.shelfposition}</option>
+                        </c:forEach>
                     </select>
                 </div>
             </div>
