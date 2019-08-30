@@ -50,8 +50,7 @@ public class ChuKuController {
 
 
         ChuKuDan c = chuKuDanList.get(2);
-        Date outtime = c.getOuttime();
-        System.out.println(outtime.getYear()+"年"+outtime.getMonth()+"月"+outtime.getDay());
+
 
         request.setAttribute("chuKuDanList",chuKuDanList);
 
@@ -65,7 +64,23 @@ public class ChuKuController {
 
 
 
+    @RequestMapping("/chaXunFaHuoDan")
+    public String chaXunFaHuoDan(HttpServletRequest request){
 
+        String faHuoDanHao =  request.getParameter("faHuoDanHao");
+        String zhuangTai =  request.getParameter("zhuangTai");
+        String startTime =  request.getParameter("startTime");
+        String endTime =  request.getParameter("endTime");
+
+
+       System.out.println(faHuoDanHao);
+        System.out.println(zhuangTai);
+        System.out.println(startTime);
+        System.out.println(endTime);
+
+    return null;
+
+    }
 
 
 
