@@ -1,4 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <html>
 <head>
     <title>入库列表</title>
@@ -38,7 +45,7 @@
     //     ;
     // }
 
-    $('#exampleModal').on('show.bs.modal', function(event) {
+    $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -47,6 +54,19 @@
         modal.find('.modal-title').text('New message to ' + recipient)
         modal.find('.modal-body input').val(recipient)
     })
+
+    function selectAll(obj) {
+        //获取当前复选框的选中状态
+        var flag = obj.checked;
+
+        //获取所有的复选框
+        var arr = document.getElementsByClassName("itemSelect");
+
+        //遍历数组,将所有的复选框和flag相同
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].checked = flag;
+        }
+    }
 
 
 </script>
@@ -104,7 +124,7 @@
         <table class="ui red table">
             <thead>
             <tr>
-                <th><input type="checkbox" name="selectAll"></th>
+                <th><input type="checkbox" name="selectAll" id="selectAll" onclick="selectAll(this)"></th>
                 <th>入库单号</th>
                 <th>创建时间</th>
                 <th>仓库</th>
@@ -120,21 +140,37 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><input type="checkbox" name="select" +${id}></td>
-                <td><a href="/store/selectById/${dsdsd}">RK101</a></td>
-                <td>2019-08-08</td>
-                <td>总仓</td>
-                <td>200</td>
-                <td data-inverted="" data-html="<h1>xscsdss</h1>">jjjjj</td>
-                <td>Apples</td>
-                <td>200</td>
-                <td>0g</td>
-                <td>Apples</td>
-                <td data-inverted="" data-tooltip="显示入库状态信息" data-position="top left"><i class="check icon"></i></td>
-                <td>0g</td>
-                <td data-inverted="" data-tooltip="备注信息" data-position="left center"><i class="info icon"></i></td>
-            </tr>
+
+            <c:forEach items="${ruKuDanList }" var="v" varStatus="vs">
+                <tr>
+                    <td><input type="checkbox" name="${v.id}" class="itemSelect"></td>
+                    <td><a href="/store/selectById/${v.id}">${v.id }</a></td>
+                    <td>${v.intime}</td>
+                    <td>总仓</td>
+                    <td>200</td>
+                    <td data-inverted="" data-html="false" data-tooltip="<h1>xscsdss</h1>">jjjjj</td>
+                    <td>Apples</td>
+                    <td>200</td>
+                    <td>0g</td>
+                    <td>Apples</td>
+
+
+                    <c:choose>
+                        <c:when test="${v.state==1}">
+                            <td data-inverted="" data-tooltip="已入库" data-position="top left"><i class="check icon"></i>
+                            </td>
+                        </c:when>
+                        <c:otherwise>  <td data-inverted="" data-tooltip="未入库" data-position="top left"><i class="error icon"></i>
+                        </td></c:otherwise>
+                    </c:choose>
+
+
+
+                    <td>序列号</td>
+                    <td data-inverted="" data-tooltip="备注信息" data-position="left center"><i class="info icon"></i></td>
+                </tr>
+            </c:forEach>
+
             </tbody>
         </table>
 
@@ -162,22 +198,26 @@
     </div>
 
 
-<%--    <div class="ui button">Activator</div>--%>
-<%--    <div class="ui special popup">--%>
-<%--        <div class="header">Custom Header</div>--%>
-<%--        <div class="ui button">Click Me</div>--%>
-<%--    </div>--%>
+    <%--    <div class="ui button">Activator</div>--%>
+    <%--    <div class="ui special popup">--%>
+    <%--        <div class="header">Custom Header</div>--%>
+    <%--        <div class="ui button">Click Me</div>--%>
+    <%--    </div>--%>
 
-<%--    <button onclick="btn()">点我</button>--%>
+    <%--    <button onclick="btn()">点我</button>--%>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+        Open modal for @mdo
+    </button>
 
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-keyboard="false" data-backdrop="false" data-show="false">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         data-keyboard="false" data-backdrop="false" data-show="false">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="exampleModalLabel">New message</h4>
                 </div>
                 <div class="modal-body">
