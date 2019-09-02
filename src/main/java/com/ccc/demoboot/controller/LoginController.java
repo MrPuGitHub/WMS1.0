@@ -34,6 +34,7 @@ public class LoginController {
         request.getSession().setAttribute("name",name);
         System.out.println(name + "\t" + password);
         User user = userService.checkLogin(name, password);
+
         System.out.println(user);
         if (user != null) {
             request.setAttribute("user", user);
