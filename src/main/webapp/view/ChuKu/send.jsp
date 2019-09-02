@@ -36,7 +36,7 @@
     <h3>请在发货完成后点击···</h3>
     <div style="height: 20px">
     </div>
-    <input class="btn btn-warning btn-primary" type="button" value="完成"
+    <input class="btn btn-warning btn-primary" type="button" value="拣货完成"
            onclick="window.location.href='chuku.jsp'">
 </div>
 <div>
