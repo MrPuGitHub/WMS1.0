@@ -7,6 +7,7 @@ package com.ccc.demoboot.controller;
 
 import com.ccc.demoboot.domain.ChuKuDan;
 import com.ccc.demoboot.service.ChuKuService;
+import com.ccc.demoboot.toCaiGou.ChuKuDanToCaiGou;
 import com.github.pagehelper.PageHelper;
 
 import com.github.pagehelper.PageInfo;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,27 +35,50 @@ public class ChuKuController {
 
 
 //    出库列表页面
-
-    @RequestMapping("/chuku/{pageNum}")
-    public String chuku(HttpServletRequest request, @PathVariable(value="pageNum") Integer pageNum){
+//    md代表查询方式
+    @RequestMapping("/chuku/{pageNum}/{md}")
+    public String chuku(HttpServletRequest request, @PathVariable(value="pageNum") Integer pageNum,@PathVariable(value="md") String md){
 
         if(pageNum <= 0){
             pageNum = 1;
         }
+        System.out.println("md="+md);
 
-        PageHelper.startPage(pageNum, 5);
+        List<ChuKuDan> chuKuDanList = null;
 
-        List<ChuKuDan> chuKuDanList = chuKuService.selAllChuKuDan();
-
-
+        switch (md){
+            case "all" :
+                PageHelper.startPage(pageNum, 5);
+                chuKuDanList = chuKuService.selAllChuKuDan();
+            break;
+            case "week" :
+                PageHelper.startPage(pageNum, 5);
+                chuKuDanList = chuKuService.selChuKuDanInWeek();
+            break;
+            case "month" :
+                PageHelper.startPage(pageNum, 5);
+                chuKuDanList = chuKuService.selChuKuDanInMonth();
+                break;
+            case "quarter" :
+                PageHelper.startPage(pageNum, 5);
+                chuKuDanList = chuKuService.selChuKuDanInQuarter();
+                break;
+            case "selAllByTiaoJian" :
+                Integer chukuid = Integer.parseInt(request.getParameter("faHuoDanHao"));
+                String state = request.getParameter("zhuangTai");
+                String startTime = request.getParameter("startTime");
+                String endTime = request.getParameter("endTime");
+                System.out.println("chukuid="+chukuid);
+                System.out.println("state="+state);
+                System.out.println("startTime="+startTime);
+                System.out.println("endTime="+endTime);
+                PageHelper.startPage(pageNum, 5);
+                chuKuDanList = chuKuService.selChuKuDanByTiaoJian(chukuid,state,startTime,endTime);
+                break;
+        }
         PageInfo<ChuKuDan> pageInfo = new PageInfo<>(chuKuDanList);
 
-
-        ChuKuDan c = chuKuDanList.get(2);
-
-
         request.setAttribute("chuKuDanList",chuKuDanList);
-
         request.setAttribute("pageInfo",pageInfo);
 
         return "ChuKu/chuku";
@@ -64,23 +89,6 @@ public class ChuKuController {
 
 
 
-    @RequestMapping("/chaXunFaHuoDan")
-    public String chaXunFaHuoDan(HttpServletRequest request){
-
-        String faHuoDanHao =  request.getParameter("faHuoDanHao");
-        String zhuangTai =  request.getParameter("zhuangTai");
-        String startTime =  request.getParameter("startTime");
-        String endTime =  request.getParameter("endTime");
-
-
-        System.out.println(faHuoDanHao);
-        System.out.println(zhuangTai);
-        System.out.println(startTime);
-        System.out.println(endTime);
-
-        return null;
-
-    }
 
 
 
@@ -110,10 +118,18 @@ public class ChuKuController {
     //返回出库单对象集合
     @ResponseBody
     @RequestMapping("/selAllChuKuDan")
-    public List<ChuKuDan> selAllChuKuDan(){
+    public List<ChuKuDanToCaiGou> selAllChuKuDan(){
 
-        return chuKuService.selAllChuKuDan();
+        List<ChuKuDanToCaiGou> listc = new ArrayList<>();
+        List<ChuKuDan> list = chuKuService.selAllToCaiGou();
+        for (ChuKuDan c:list){
+            ChuKuDanToCaiGou ckd = new ChuKuDanToCaiGou();
+            ckd.setGoodid(c.getGoodid());
+            ckd.setGoodnum(c.getOutnum());
+            listc.add(ckd);
+        }
 
+        return listc;
 
     }
 

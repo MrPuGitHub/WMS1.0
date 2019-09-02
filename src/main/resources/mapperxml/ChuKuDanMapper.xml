@@ -2,4 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccc.demoboot.mapper.ChuKuDanMapper">
 
+    <!--查询本周内的出库单-->
+    <select id="selChuKuDanInWeek" resultType="com.ccc.demoboot.domain.ChuKuDan">
+        select * from chu_ku_dan where YEARWEEK(DATE_FORMAT(outtime,'%Y-%m-%d')) = YEARWEEK(NOW())
+    </select>
+
+
+    <!--查询本月内的出库单-->
+    <select id="selChuKuDanInMonth" resultType="com.ccc.demoboot.domain.ChuKuDan">
+        select * from chu_ku_dan where DATE_FORMAT(outtime,'%Y%m') = DATE_FORMAT(CURDATE(),'%Y%m')
+    </select>
+
+
+    <!--查询本季度内的出库单-->
+    <select id="selChuKuDanInQuarter" resultType="com.ccc.demoboot.domain.ChuKuDan">
+        select * from chu_ku_dan where QUARTER(outtime) = QUARTER(NOW())
+    </select>
+
+
+    <!--根据指定的出库单号，出库单状态，出库时间范围查询出库单-->
+    <select id="selChuKuDanByTiaoJian" resultType="com.ccc.demoboot.domain.ChuKuDan">
+        select * from chu_ku_dan where chukuid=2 and state='测试调度' and outtime &gt; '2019-08-01' and outtime &lt; '2019-09-11'
+    </select>
+
+
+
+    <select id="selAllToCaiGou" resultType="com.ccc.demoboot.domain.ChuKuDan">
+        select goodid,outnum,state,outtime from chu_ku_dan  where state != '测试调度' and DATE_SUB(CURDATE(),INTERVAL 7 DAY) &lt;= DATE(outtime) GROUP BY chukuid
+    </select>
+
 </mapper>
