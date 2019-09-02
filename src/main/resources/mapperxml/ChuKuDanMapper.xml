@@ -22,11 +22,18 @@
 
     <!--根据指定的出库单号，出库单状态，出库时间范围查询出库单-->
     <select id="selChuKuDanByTiaoJian" resultType="com.ccc.demoboot.domain.ChuKuDan">
-        select * from chu_ku_dan where chukuid=2 and state='测试调度' and outtime &gt; '2019-08-01' and outtime &lt; '2019-09-11'
+        select * from chu_ku_dan where chukuid=#{param1} and state=#{param2} and outtime &gt; #{param3} and outtime &lt; #{param4}
     </select>
 
 
 
+
+
+
+
+
+
+    <!--提供给采购的,统计七天内商品id及其出库数量-->
     <select id="selAllToCaiGou" resultType="com.ccc.demoboot.domain.ChuKuDan">
         select goodid,outnum,state,outtime from chu_ku_dan  where state != '测试调度' and DATE_SUB(CURDATE(),INTERVAL 7 DAY) &lt;= DATE(outtime) GROUP BY chukuid
     </select>
