@@ -25,7 +25,7 @@
 
     <div style="text-align: center" >
 
-        <form action="<%=path%>/chaXunFaHuoDan">
+        <form action="<%=path%>/chuku/1/selAllByTiaoJian">
 
             <h2>当前位置:仓库管理 -> 出库管理</h2>
 
@@ -45,7 +45,12 @@
 
             <input type="submit" class="btn btn-primary" value="查询"/>
 
+
         </form>
+
+        <button type="submit" class="btn btn-primary" onclick="window.location.href='<%=path%>/chuku/1/week'"/>一周内</button>
+        <button type="submit" class="btn btn-primary" onclick="window.location.href='<%=path%>/chuku/1/month'"/>一月内</button>
+        <button type="submit" class="btn btn-primary" onclick="window.location.href='<%=path%>/chuku/1/quarter'"/>本季度</button>
 
     </div>
 
@@ -67,7 +72,7 @@
 
                 <tr>
                     <td>${v.chukuid}</td>
-                    <td>${v.outtime.getYear()+1900}年${v.outtime.getMonth()}月${v.outtime.getDay()}日</td>
+                    <td>${v.outtime.getYear()+1900}年${v.outtime.getMonth()+1}月${v.outtime.getDate()}日</td>
                     <td>${v.state}</td>
                     <td>${v.userid}</td>
                     <td>
@@ -86,8 +91,8 @@
             总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
             <br/>
 
-            <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum-1}'">上一页</button>
-            <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum+1}'">下一页</button>
+            <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum-1}/all'">上一页</button>
+            <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/chuku/${pageInfo.pageNum+1}/all'">下一页</button>
             `
 
         </div>
