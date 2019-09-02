@@ -64,7 +64,12 @@ public class ChuKuController {
                 chuKuDanList = chuKuService.selChuKuDanInQuarter();
                 break;
             case "selAllByTiaoJian" :
-                Integer chukuid = Integer.parseInt(request.getParameter("faHuoDanHao"));
+                String cid = request.getParameter("faHuoDanHao");
+                Integer chukuid = null;
+                if(cid!=null && cid !=""){
+                    chukuid = Integer.parseInt(cid);
+                }
+
                 String state = request.getParameter("zhuangTai");
                 String startTime = request.getParameter("startTime");
                 String endTime = request.getParameter("endTime");
