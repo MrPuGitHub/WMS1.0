@@ -41,11 +41,18 @@ public class PanDianController {
     @Resource(name = "panyinPankuiServiceImpl")
     PanyinPankuiService panyinPankuiService;
 
-    @RequestMapping(value = "/pandian")
-    public String pandian() {
 
+
+
+    @RequestMapping(value = "/pandian")
+    public String pandian(HttpServletRequest req) {
+        List<Pandian> panDianList =pandianService.selectAllPanDian();
+        System.out.println(panDianList.get(0).getPdtime());
+        req.setAttribute("panDianList", panDianList);
         return "PanDian/pandian";
     }
+
+
 
     @RequestMapping(value = "/warehouse")
     public String warehouse(HttpServletRequest req) {
@@ -53,8 +60,6 @@ public class PanDianController {
         List<Warehouse> warehouseList = warehouseService.selectAllWarehouse();
 
         List<Shelf> shelfList = shelfService.selectAllShelf();
-
-        List<Pandian> panDianList =pandianService.selectAllPanDian();
 
                 System.out.println(warehouseList.get(0).getWarehouseName());
 
@@ -90,16 +95,6 @@ public class PanDianController {
         req.setAttribute("pageInfo", pageInfo);
 
         return "PanDian/pandian-detail";
-    }
-
-
-    @RequestMapping(value = "/pandian")
-    public String pandian(HttpServletRequest req) {
-
-        List<Pandian> panDianList =pandianService.selectAllPanDian();
-
-        req.setAttribute("panDianList", panDianList);
-        return "PanDian/pandian";
     }
 
 }

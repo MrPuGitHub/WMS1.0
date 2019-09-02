@@ -2,6 +2,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
 %>
@@ -68,7 +69,9 @@
             <td>${vs.count}</td>
             <td>${v.id}</td>
             <td>${v.pdrname}</td>
-            <td>${v.padtime}</td>
+            <td>
+            <fmt:formatDate value="${v.pdtime}" type="date" pattern="yyyy年MM月dd日"/>
+            </td>
             <td><input type="submit" class="btn btn-primary" value="查看"
                        onclick="window.location.href='<%=path%>/panyinpankui/1'"/>
             </td>
