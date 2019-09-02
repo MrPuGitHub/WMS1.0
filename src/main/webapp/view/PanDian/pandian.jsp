@@ -62,16 +62,18 @@
             <td>操作</td>
         </tr>
         <%--遍历--%>
+<c:forEach items="${panDianList}" var="v" varStatus="vs">
         <tr>
             <td><input type="checkbox"/></td>
-            <td>1</td>
-            <td>111</td>
-            <td>喂喂喂</td>
-            <td>2019-8-28</td>
+            <td>${vs.count}</td>
+            <td>${v.id}</td>
+            <td>${v.pdrname}</td>
+            <td>${v.padtime}</td>
             <td><input type="submit" class="btn btn-primary" value="查看"
                        onclick="window.location.href='<%=path%>/panyinpankui/1'"/>
             </td>
         </tr>
+</c:forEach>
     </table>
 
 

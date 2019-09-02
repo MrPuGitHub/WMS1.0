@@ -49,8 +49,6 @@
         <td width="80">盈亏数量</td>
         <td width="70">单价</td>
         <td width="70">盈亏金额</td>
-        <td width="120">盘点时间</td>
-        <td width="100">盘点人</td>
     </tr>
     <%--遍历获取到的发货单集合fhList开始--%>
     <c:forEach items="${panyinpankuiList}" var="v" varStatus="vs">
@@ -66,8 +64,6 @@
             <td width="80">${v.yksl}</td>
             <td width="70">${v.price}</td>
             <td width="70">${v.ykje}</td>
-            <td width="120">${v.pdtime}</td>
-            <td width="100">${v.pdname}</td>
         </tr>
     </c:forEach>
 </table>

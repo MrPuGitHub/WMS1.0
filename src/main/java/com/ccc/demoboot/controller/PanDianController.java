@@ -2,10 +2,12 @@
 package com.ccc.demoboot.controller;
 
 
+import com.ccc.demoboot.domain.Pandian;
 import com.ccc.demoboot.domain.PanyinPankui;
 import com.ccc.demoboot.domain.Shelf;
 import com.ccc.demoboot.domain.Warehouse;
 import com.ccc.demoboot.myproperties.MyProperties;
+import com.ccc.demoboot.service.PandianService;
 import com.ccc.demoboot.service.PanyinPankuiService;
 import com.ccc.demoboot.service.ShelfService;
 import com.ccc.demoboot.service.WarehouseService;
@@ -33,6 +35,8 @@ public class PanDianController {
     @Resource(name = "shelfServiceImpl")
     ShelfService shelfService;
 
+    @Resource(name = "pandianServiceImpl")
+    PandianService pandianService;
 
     @Resource(name = "panyinPankuiServiceImpl")
     PanyinPankuiService panyinPankuiService;
@@ -50,7 +54,9 @@ public class PanDianController {
 
         List<Shelf> shelfList = shelfService.selectAllShelf();
 
-        System.out.println(warehouseList.get(0).getWarehouseName());
+        List<Pandian> panDianList =pandianService.selectAllPanDian();
+
+                System.out.println(warehouseList.get(0).getWarehouseName());
 
         req.setAttribute("warehouseList", warehouseList);
 
@@ -61,10 +67,10 @@ public class PanDianController {
 
     @RequestMapping(value = "/add")
 
-    public String add(HttpServletRequest req,PanyinPankui record) {
+    public String add(HttpServletRequest req, PanyinPankui record) {
 
         panyinPankuiService.insert(record);
-        System.out.println("++++++++"+record.getPdtime());
+
         return "redirect:/panyinpankui/1";
     }
 
@@ -73,12 +79,12 @@ public class PanDianController {
      */
 
     @RequestMapping(value = "/panyinpankui/{pageNum}")
-    public String panyinpankui(HttpServletRequest req,@PathVariable(value = "pageNum") int pageNum) {
-        int pageSize =MyProperties.getPagesize();// 每页显示的条数
+    public String panyinpankui(HttpServletRequest req, @PathVariable(value = "pageNum") int pageNum) {
+        int pageSize = MyProperties.getPagesize();// 每页显示的条数
         PageHelper.startPage(pageNum, pageSize);
 
         List<PanyinPankui> panyinpankuiList = panyinPankuiService.selectAllPanyinPankui();
-        PageInfo pageInfo=new PageInfo(panyinpankuiList);
+        PageInfo pageInfo = new PageInfo(panyinpankuiList);
 
         req.setAttribute("panyinpankuiList", panyinpankuiList);
         req.setAttribute("pageInfo", pageInfo);
@@ -86,5 +92,14 @@ public class PanDianController {
         return "PanDian/pandian-detail";
     }
 
+
+    @RequestMapping(value = "/pandian")
+    public String pandian(HttpServletRequest req) {
+
+        List<Pandian> panDianList =pandianService.selectAllPanDian();
+
+        req.setAttribute("panDianList", panDianList);
+        return "PanDian/pandian";
+    }
 
 }
