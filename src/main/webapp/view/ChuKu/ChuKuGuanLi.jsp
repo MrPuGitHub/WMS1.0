@@ -49,7 +49,7 @@
             </div>
 
 
-            <div class="div2" onclick="window.location.href='chuku.jsp'">
+            <div class="div2" onclick="window.location.href='<%=path%>/chuku/1'">
                 <img src="/img/ChuKu/chuKuLieBiao.svg"/>
                 <br/>
                 <label for="exampleInputEmail1">出库记录</label>
