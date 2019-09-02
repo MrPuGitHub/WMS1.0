@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccc.demoboot.mapper.ShelfMapper">
-    <resultMap id="BaseResultMap" type="com.ccc.demoboot.domain.Shelf">
-        <!--@mbg.generated generated on Thu Aug 29 08:34:16 CST 2019.-->
-        <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="goodId" jdbcType="INTEGER" property="goodid"/>
-        <result column="goodamount" jdbcType="INTEGER" property="goodamount"/>
-        <result column="warehouseid" jdbcType="INTEGER" property="warehouseid"/>
-        <result column="shelfposition" jdbcType="VARCHAR" property="shelfposition"/>
-    </resultMap>
-    <sql id="Base_Column_List">
-        <!--@mbg.generated generated on Thu Aug 29 08:34:16 CST 2019.-->
-        id, goodId, goodamount, warehouseid, shelfposition
-    </sql>
 
-    <select id="selectByGoodid" resultType="com.ccc.demoboot.domain.Shelf">
-        SELECT t.*
-        FROM wms.shelf t
-        where goodId=#{goodId}
-        and warehouseid=#{warehouseId}
 
-    </select>
 </mapper>

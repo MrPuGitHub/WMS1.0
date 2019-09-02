@@ -5053,7 +5053,7 @@ jQuery.extend({
 			jQuery.event.trigger( "ajaxStart" );
 		}
 
-		// Matches an absolute URL, and saves the domain
+		// Matches an absolute URL, and saves the com.ccc.demoboot.domain
 		var parts = rurl.exec( s.url ),
 			remote = parts && (parts[1] && parts[1] !== location.protocol || parts[2] !== location.host);
 
@@ -5113,7 +5113,7 @@ jQuery.extend({
 			xhr.open(type, s.url, s.async);
 		}
 
-		// Need an extra try/catch for cross domain requests in Firefox 3
+		// Need an extra try/catch for cross com.ccc.demoboot.domain requests in Firefox 3
 		try {
 			// Set the correct header, if data is being sent
 			if ( s.data || origSettings && origSettings.contentType ) {

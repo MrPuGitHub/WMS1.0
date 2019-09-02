@@ -126,9 +126,6 @@ public class ChuKuController {
             ChuKuDanToCaiGou ckd = new ChuKuDanToCaiGou();
             ckd.setGoodid(c.getGoodid());
             ckd.setGoodnum(c.getOutnum());
-            ckd.setOutTime(c.getOuttime());
-            ckd.setState(c.getState());
-
             listc.add(ckd);
         }
 
