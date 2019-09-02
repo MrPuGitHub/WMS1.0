@@ -51,5 +51,16 @@
         </tr>
         </c:forEach>
     </table>
+<%--分页--%>
+<div style="text-align: center;">
+<%--${pageInfo}--%>
+    总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
+    <br/>
+
+    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum-1}/all'">上一页</button>
+    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum+1}/all'">下一页</button>
+
+
+</div>
 </body>
-</html>v
+</html>
