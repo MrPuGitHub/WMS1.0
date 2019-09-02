@@ -17,6 +17,7 @@ public class ShelfServiceImpl implements ShelfService{
 
     @Override
     public List<Shelf> selectAllShelf() {
+
         return shelfMapper.selectAll();
     }
 }
