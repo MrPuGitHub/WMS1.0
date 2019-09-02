@@ -4,14 +4,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "my1")
+//@ConfigurationProperties(prefix = "my1")
 public class MyProperties {
 
     private int age;
     private String name;
-    private static int pagesize;
+    private int pagesize;
 
-    public static int getPagesize() {
+    public int getPagesize() {
         return pagesize;
     }
 

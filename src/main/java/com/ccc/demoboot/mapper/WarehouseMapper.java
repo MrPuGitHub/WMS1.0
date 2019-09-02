@@ -1,9 +1,11 @@
 package com.ccc.demoboot.mapper;
 
 import com.ccc.demoboot.domain.Warehouse;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-@org.apache.ibatis.annotations.Mapper
-public interface WarehouseMapper extends Mapper<Warehouse> {
+import java.util.List;
 
+@Mapper
+public interface WarehouseMapper extends tk.mybatis.mapper.common.Mapper<Warehouse> {
+    List<Warehouse> selectByGoodid(String goodId);
 }
