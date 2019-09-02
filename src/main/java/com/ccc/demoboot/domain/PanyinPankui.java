@@ -42,10 +42,6 @@ public class PanyinPankui {
 
     private Double ykje;
 
-    private Date pdtime;
-
-    private String pdname;
-
     public Integer getId() {
         return id;
     }
@@ -142,19 +138,4 @@ public class PanyinPankui {
         this.ykje = ykje;
     }
 
-    public Date getPdtime() {
-        return pdtime;
-    }
-
-    public void setPdtime(Date pdtime) {
-        this.pdtime = pdtime;
-    }
-
-    public String getPdname() {
-        return pdname;
-    }
-
-    public void setPdname(String pdname) {
-        this.pdname = pdname;
-    }
 }

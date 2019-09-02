@@ -25,10 +25,12 @@
         <input type="submit" class="btn btn-primary" value="查询"/>
 </div>
 <br/>
-<table class="table  table-bordered">
+<table class="table  table-bordered" style="text-align: center">
     <tr>
         <td><input type="checkbox"/></td>
+
         <td>退货单编号</td>
+        <td>订单编号</td>
         <td>退货时间</td>
         <td>商品编号</td>
         <td>商品数量</td>
@@ -57,6 +59,17 @@
     </tr>
     </c:forEach>
 </table>
+
+<div style="text-align: center;">
+
+    总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
+    <br/>
+
+    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum-1}/all'">上一页</button>
+    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum+1}/all'">下一页</button>
+    `
+
+</div>
 <input type="submit" class="btn btn-primary" style="margin-left:90%" value="退出"/>
 
 </body>
