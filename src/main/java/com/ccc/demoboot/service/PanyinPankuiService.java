@@ -19,4 +19,5 @@ public interface PanyinPankuiService{
 
     int updateByPrimaryKey(PanyinPankui record);
 
+    List<PanyinPankui> selectAllPanyinPankui();
 }

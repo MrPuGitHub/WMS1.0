@@ -2,6 +2,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
 %>
@@ -13,7 +14,6 @@
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
-
 
 </head>
 
@@ -63,16 +63,20 @@
             <td>操作</td>
         </tr>
         <%--遍历--%>
+<c:forEach items="${panDianList}" var="v" varStatus="vs">
         <tr>
             <td><input type="checkbox"/></td>
-            <td>1</td>
-            <td>111</td>
-            <td>喂喂喂</td>
-            <td>2019-8-28</td>
+            <td>${vs.count}</td>
+            <td>${v.id}</td>
+            <td>${v.pdrname}</td>
+            <td>
+            <fmt:formatDate value="${v.pdtime}" type="date" pattern="yyyy年MM月dd日"/>
+            </td>
             <td><input type="submit" class="btn btn-primary" value="查看"
-                       onclick="window.location.href='view/PanDian/pandian-detail.jsp'"/>
+                       onclick="window.location.href='<%=path%>/panyinpankui/1'"/>
             </td>
         </tr>
+</c:forEach>
     </table>
 
 
