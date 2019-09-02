@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PandianService{
 
-
+/////////////////////你好你好123123
 List<Pandian> selectAllPanDian();
 
 }

@@ -7,7 +7,7 @@ import com.ccc.demoboot.domain.Pandian;
 import com.ccc.demoboot.service.PandianService;
 
 import java.util.List;
-
+//你好你好123123
 @Service
 public class PandianServiceImpl implements PandianService{
 
