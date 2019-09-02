@@ -33,12 +33,13 @@
 
             状态:
             <select class="form-control" style="display: inline-block; width: 150px" name="zhuangTai">
-                <option value ="调度">测试调度</option>
-                <option value ="打单">测试打单</option>
-                <option value="拣货">测试拣货</option>
-                <option value="复核">测试复核</option>
-                <option value="包装">测试包装</option>
-                <option value="交接发货">测试交接发货</option>
+                <option>  </option>
+                <option value ="调度">调度</option>
+                <option value ="打单">打单</option>
+                <option value="拣货">拣货</option>
+                <option value="复核">复核</option>
+                <option value="包装">包装</option>
+                <option value="交接发货">交接发货</option>
             </select>
 
             时间:<input type="date" class="form-control"  name="startTime" style="display: inline-block; width: 150px" placeholder="开始时间"/>到<input type="date" class="form-control" style="display: inline-block; width: 150px" name="endTime" placeholder="结束时间"/>
