@@ -1,9 +1,11 @@
 package com.ccc.demoboot.mapper;
 
 import com.ccc.demoboot.domain.Shelf;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-@org.apache.ibatis.annotations.Mapper
-public interface ShelfMapper extends Mapper<Shelf> {
+import java.util.List;
 
+@Mapper
+public interface ShelfMapper extends tk.mybatis.mapper.common.Mapper<Shelf> {
+    List<Shelf> selectByGoodid(String goodId,String warehouseId);
 }
