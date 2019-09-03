@@ -8,4 +8,6 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface ShelfMapper extends Mapper<Shelf> {
     List<Shelf> selectAllByGoodid(Integer goodid);
+    List<Shelf> selectByGoodid(int goodId, int warehouseId);
+
 }
