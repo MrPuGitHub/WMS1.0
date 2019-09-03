@@ -2,4 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccc.demoboot.mapper.PandianMapper">
 
+    <!--<resultMap id="resultMapselectByIdPanDian" type="com.ccc.demoboot.domain.Pandian">-->
+        <!--<id property="id" column="id" />-->
+        <!--<result property="pdrname" column="pdrname" />-->
+        <!--<result property="pdtime" column="pdtime" />-->
+        <!--<association property="panyinPankuiObj" javaType="com.ccc.demoboot.domain.PanyinPankui">-->
+            <!--<id property="id" column="bid" />-->
+            <!--<result property="goodid" column="goodid" />-->
+            <!--<result property="goodname" column="goodname" />-->
+            <!--<result property="warehouseName" column="warehouse_name" />-->
+            <!--<result property="shelfposition" column="shelfposition" />-->
+            <!--<result property="pdsl" column="pdsl" />-->
+            <!--<result property="unit" column="unit" />-->
+            <!--<result property="price" column="price" />-->
+            <!--<result property="yksl" column="yksl" />-->
+            <!--<result property="zmsl" column="zmsl" />-->
+        <!--</association>-->
+    <!--</resultMap>-->
+    <!--<select id="selectByIdPanDian" resultMap="resultMapselectByIdPanDian" parameterType="com.ccc.demoboot.domain.Pandian">-->
+        <!--select a.id,a.pdrname,a.pdtime,b.id bid,b.goodid,b.goodname,b.pdsl,b.price,b.shelfposition,b.unit,b.warehouse_name,b.ykje,b.yksl,b.zmsl-->
+        <!--from pandian a INNER JOIN panyin_pankui b ON a.id=b.pandiandanid-->
+    <!--</select>-->
+
+
+
 </mapper>

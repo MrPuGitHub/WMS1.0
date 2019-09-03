@@ -1,6 +1,7 @@
 package com.ccc.demoboot.domain;
 
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.Date;
 
 public class Pandian {
@@ -10,6 +11,17 @@ public class Pandian {
     private Date pdtime;
 
     private String pdrname;
+
+    @Transient
+    private PanyinPankui panyinPankuiObj;
+
+    public PanyinPankui getPanyinPankuiObj() {
+        return panyinPankuiObj;
+    }
+
+    public void setPanyinPankuiObj(PanyinPankui panyinPankuiObj) {
+        this.panyinPankuiObj = panyinPankuiObj;
+    }
 
     public Integer getId() {
         return id;
