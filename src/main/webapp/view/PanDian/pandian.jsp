@@ -63,7 +63,7 @@
             <td>操作</td>
         </tr>
         <%--遍历--%>
-<c:forEach items="${panDianList}" var="v" varStatus="vs">
+<c:forEach items="${pandianlist}" var="v" varStatus="vs">
         <tr>
             <td><input type="checkbox"/></td>
             <td>${vs.count}</td>
@@ -72,8 +72,13 @@
             <td>
             <fmt:formatDate value="${v.pdtime}" type="date" pattern="yyyy年MM月dd日"/>
             </td>
-            <td><input type="submit" class="btn btn-primary" value="查看"
-                       onclick="window.location.href='<%=path%>/panyinpankui/1'"/>
+            <td>
+                <%--<input type="button" class="btn btn-primary" value="查看"--%>
+                       <%--onclick="window.location.href='<%=path%>/panyinpankui/${v.panyinPankuiObj}'"/>--%>
+                    <button  class="btn btn-primary" value="查看"
+                           onclick="window.location.href='<%=path%>/panyinpankui/${v.id}'">查看</button>
+
+
             </td>
         </tr>
 </c:forEach>

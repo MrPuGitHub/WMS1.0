@@ -19,4 +19,6 @@ public class PandianServiceImpl implements PandianService{
     public List<Pandian> selectAllPanDian() {
         return pandianMapper.selectAll();
     }
+
+
 }
