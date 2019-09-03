@@ -7,7 +7,7 @@ import java.util.List;
 public interface ShelfService {
     List<Shelf> selectAllShelf();
 
-    // List<Shelf> selectByGoodid(String goodId, String warehouseId);
+    List<Shelf> selectByGoodid(int goodId, int warehouseId);
 
     int updateGoods(Shelf shelf);
 }
