@@ -5,6 +5,9 @@ import javax.annotation.Resource;
 import com.ccc.demoboot.mapper.PanyinPankuiMapper;
 import com.ccc.demoboot.domain.PanyinPankui;
 import com.ccc.demoboot.service.PanyinPankuiService;
+
+import java.util.List;
+
 @Service
 public class PanyinPankuiServiceImpl implements PanyinPankuiService{
 
@@ -39,6 +42,11 @@ public class PanyinPankuiServiceImpl implements PanyinPankuiService{
     @Override
     public int updateByPrimaryKey(PanyinPankui record) {
         return panyinPankuiMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<PanyinPankui> selectAllPanyinPankui() {
+        return panyinPankuiMapper.selectAll();
     }
 
 }

@@ -18,12 +18,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class EmpController {
+public class
+EmpController {
 
     @Resource(name = "empServiceImpl")
     EmpService empService;
 
     @Resource(name = "workServiceImpl")
+
     WorkService workService;
 
     @Resource(name = "empWorkServiceImpl")

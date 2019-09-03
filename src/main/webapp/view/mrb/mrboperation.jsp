@@ -27,7 +27,7 @@
           <option name="op">3号</option>
           <option name="op">4号</option>
       </select>--%>
-    <table class="table  table-bordered">
+    <table class="table  table-bordered" style="text-align: center">
         <tr>
 
             <td>货架编号</td>
@@ -35,6 +35,7 @@
             <td>区内库存</td>
             <td>仓库编号</td>
             <td>货架</td>
+            <td>操作</td>
         </tr>
 
         <%--遍历获取到的发货单集合fhList开始--%>
@@ -45,9 +46,21 @@
             <td>${v.goodamount}</td>
                 <td>${v.warehouseid}</td>
                 <td>${v.shelfposition}</td>
+                <td><input type="submit" class="btn btn-primary" value="加入"/></td>
 
         </tr>
         </c:forEach>
     </table>
+<%--分页--%>
+<div style="text-align: center;">
+<%--${pageInfo}--%>
+    总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
+    <br/>
+
+    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum-1}/all'">上一页</button>
+    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum+1}/all'">下一页</button>
+
+
+</div>
 </body>
 </html>
