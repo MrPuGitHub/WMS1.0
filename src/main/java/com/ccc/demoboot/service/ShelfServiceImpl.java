@@ -21,10 +21,10 @@ public class ShelfServiceImpl implements ShelfService {
         return shelfMapper.selectAll();
     }
 
-    // @Override
-    // public List<Shelf> selectByGoodid(String goodId, String warehouseId) {
-    //     return shelfMapper.selectByGoodid(goodId, warehouseId);
-    // }
+    @Override
+    public List<Shelf> selectByGoodid(int goodId, int warehouseId) {
+        return shelfMapper.selectByGoodid(goodId, warehouseId);
+    }
 
     @Override
     public int updateGoods(Shelf shelf) {
