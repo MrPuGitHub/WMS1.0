@@ -46,7 +46,8 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><input type="submit" class="btn btn-primary" onclick="window.location.href='<%=path%>/mrboperation'" value="操作"/></td>
+        <td></td>
+        <td><input type="submit" class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/1'" value="操作"/></td>
     </tr>
     <%--遍历获取到的发货单集合fhList开始--%>
     <tr>
@@ -54,6 +55,7 @@
         <td><input type="checkbox"/></td>
         <td>${v.id}</td>
         <td>2</td>
+            <td></td>
         <td>2019.9.2</td>
         <td><input type="submit" class="btn btn-primary" value="操作" onclick="window.location.href='<%=path%>/mrboperation'"/></td>
     </tr>
