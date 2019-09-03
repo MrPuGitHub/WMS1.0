@@ -32,7 +32,9 @@
             </nav>
         </h2>
         <div class="text-c">
-            盘点单：<span id="code"></span>
+            盘点单：<c:forEach items="${lllll}" var="v" varStatus="vs">
+    <span id="code">${v.pandiandanid}</span>
+        </c:forEach>
         </div>
     </form>
 </div>
@@ -51,7 +53,7 @@
         <td width="70">盈亏金额</td>
     </tr>
     <%--遍历获取到的发货单集合fhList开始--%>
-    <c:forEach items="${panyinpankuiList}" var="v" varStatus="vs">
+    <c:forEach items="${lllll}" var="v" varStatus="vs">
         <tr class="text-c">
             <td width="10">${vs.count}</td>
             <td width="70">${v.warehouseName}</td>
