@@ -21,6 +21,22 @@
 </h2>
 <br/>
 <br/>
+<form class="form-horizontal" action="<%=path%>/selAllShelf/1">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">商品编号</label>
+        <div class="col-sm-5">
+            <input type="text" name="goodid" class="form-control" id="inputEmail3"
+                   placeholder="输入商品编号">
+        </div>
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-default">搜索</button>
+
+        </div>
+    </div>
+
+
+</form>
+
     <%--  <select>
           <option name="op">1号</option>
           <option name="op">2号</option>
@@ -34,7 +50,7 @@
             <td>商品编号</td>
             <td>区内库存</td>
             <td>仓库编号</td>
-            <td>货架</td>
+            <td>货架名称</td>
             <td>操作</td>
         </tr>
 
@@ -57,8 +73,8 @@
     总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
     <br/>
 
-    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum-1}/all'">上一页</button>
-    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum+1}/all'">下一页</button>
+    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum-1}'">上一页</button>
+    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum+1}'">下一页</button>
 
 
 </div>

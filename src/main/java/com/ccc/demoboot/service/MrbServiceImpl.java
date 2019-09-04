@@ -13,8 +13,18 @@ public class MrbServiceImpl implements MrbService {
 @Resource
     ShelfMapper shelfMapper;
 
+
+
     @Override
-    public List<Shelf> selAllShelf() {
+    public List<Shelf> selAllShelf(Shelf shelf) {
+
         return shelfMapper.selectAll();
+    }
+
+
+    @Override
+    public List<Shelf> selectAllByGoodid(Integer goodid) {
+
+        return shelfMapper.selectAllByGoodid(goodid);
     }
 }
