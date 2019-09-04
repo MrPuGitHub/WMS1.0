@@ -6,12 +6,19 @@ import com.ccc.demoboot.domain.Warehouse;
 import com.ccc.demoboot.service.SendorderService;
 import com.ccc.demoboot.service.ShelfService;
 import com.ccc.demoboot.service.WarehouseService;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,10 +36,40 @@ public class getOutStorage {
     Sendorder sendorder;
     @Resource(name = "sendorderServiceImpl")
     SendorderService sendorderService;
-
     /**
      * 获取订单信息
      */
+    @RequestMapping("/getOrder")
+    public String http() {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        // HTTP Get请求，参数设置为请求地址
+        HttpGet httpGet = new HttpGet("");
+        // 设置请求和传输超时时间
+        // RequestConfig requestConfig =
+        // RequestConfig.custom().setSocketTimeout(TIME_OUT).setConnectTimeout(TIME_OUT).build();
+        // httpGet.setConfig(requestConfig);
+        String res = "";
+        try {
+            // 执行请求
+            HttpResponse getAddrResp = httpClient.execute(httpGet);
+            HttpEntity entity = getAddrResp.getEntity();
+            if (entity != null) {
+                res = EntityUtils.toString(entity);
+            }
+            System.out.println("响应" + getAddrResp.getStatusLine());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return res;
+        } finally {
+            try {
+                httpClient.close();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                return res;
+            }
+        }
+        return res;
+    }
 
 
     List<Shelf> shelfList;//保存商品货架信息
