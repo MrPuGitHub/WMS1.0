@@ -23,6 +23,17 @@ public interface ChuKuService {
     //根据指定的出库单号，出库单状态，出库时间范围查询出库单
     List<ChuKuDan> selChuKuDanByTiaoJian(Integer chukuid,String state,String startTime,String endTime);
 
+    //根据订单生成出库单
+    void insertChuKuDanByDingDan(ChuKuDan ck);
+
+
+
+
+
+
+
+
+
 
     //给采购的方法
     List<ChuKuDan> selAllToCaiGou();

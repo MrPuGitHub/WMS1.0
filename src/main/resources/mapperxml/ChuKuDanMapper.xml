@@ -2,47 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccc.demoboot.mapper.ChuKuDanMapper">
 
-    <!--查询本周内的出库单-->
-    <select id="selChuKuDanInWeek" resultType="com.ccc.demoboot.domain.ChuKuDan">
-        select * from chu_ku_dan where YEARWEEK(DATE_FORMAT(outtime,'%Y-%m-%d')) = YEARWEEK(NOW())
-    </select>
+  <!--查询本周内的出库单-->
+  <select id="selChuKuDanInWeek" resultType="com.ccc.demoboot.domain.ChuKuDan">
+    select * from chu_ku_dan where YEARWEEK(DATE_FORMAT(outtime,'%Y-%m-%d')) = YEARWEEK(NOW())
+  </select>
 
 
-    <!--查询本月内的出库单-->
-    <select id="selChuKuDanInMonth" resultType="com.ccc.demoboot.domain.ChuKuDan">
-        select * from chu_ku_dan where DATE_FORMAT(outtime,'%Y%m') = DATE_FORMAT(CURDATE(),'%Y%m')
-    </select>
+  <!--查询本月内的出库单-->
+  <select id="selChuKuDanInMonth" resultType="com.ccc.demoboot.domain.ChuKuDan">
+    select * from chu_ku_dan where DATE_FORMAT(outtime,'%Y%m') = DATE_FORMAT(CURDATE(),'%Y%m')
+  </select>
 
 
-    <!--查询本季度内的出库单-->
-    <select id="selChuKuDanInQuarter" resultType="com.ccc.demoboot.domain.ChuKuDan">
-        select * from chu_ku_dan where QUARTER(outtime) = QUARTER(NOW())
-    </select>
+  <!--查询本季度内的出库单-->
+  <select id="selChuKuDanInQuarter" resultType="com.ccc.demoboot.domain.ChuKuDan">
+    select * from chu_ku_dan where QUARTER(outtime) = QUARTER(NOW())
+  </select>
 
 
-    <!--根据指定的出库单号，出库单状态，出库时间范围查询出库单-->
-    <select id="selChuKuDanByTiaoJian" resultType="com.ccc.demoboot.domain.ChuKuDan">
-        select * from chu_ku_dan
-        <where>
+  <!--根据指定的出库单号，出库单状态，出库时间范围查询出库单-->
+  <select id="selChuKuDanByTiaoJian" resultType="com.ccc.demoboot.domain.ChuKuDan">
+    select * from chu_ku_dan
+    <where>
 
-          <if test="param1 != null">chukuid=#{param1}</if>
-            <if test="param2 != null and param2 != ''"> and state=#{param2}
-                <if test="param3 != null and param3 != ''">  and outtime &gt; #{param3}  </if>
-                <if test="param4 != null and param4 != ''"> and outtime &lt; #{param4} </if></if>
-        </where>
-    </select>
-
-
-
+      <if test="param1 != null">chukuid=#{param1}</if>
+      <if test="param2 != null and param2 != ''"> and state=#{param2}
+        <if test="param3 != null and param3 != ''">  and outtime &gt; #{param3}  </if>
+        <if test="param4 != null and param4 != ''"> and outtime &lt; #{param4} </if></if>
+    </where>
+  </select>
 
 
 
+  <select id="insertChuKuDanByDingDan" parameterType="com.ccc.demoboot.domain.ChuKuDan">
+    insert chu_ku_dan set outnum=#{outnum},address=#{address},uname=#{uname},orderid=#{orderid},goodid=#{goodid},tel=#{tel},outtime=NOW(),userid=1
+  </select>
 
 
 
-    <!--提供给采购的,统计七天内商品id及其出库数量-->
-    <select id="selAllToCaiGou" resultType="com.ccc.demoboot.domain.ChuKuDan">
-        select goodid,outnum,state,outtime from chu_ku_dan  where state != '测试调度' and DATE_SUB(CURDATE(),INTERVAL 7 DAY) &lt;= DATE(outtime) GROUP BY chukuid
-    </select>
+
+
+
+  <!--提供给采购的,统计七天内商品id及其出库数量-->
+  <select id="selAllToCaiGou" resultType="com.ccc.demoboot.domain.ChuKuDan">
+    select goodid,outnum,state,outtime from chu_ku_dan  where state != '测试调度' and DATE_SUB(CURDATE(),INTERVAL 7 DAY) &lt;= DATE(outtime) GROUP BY chukuid
+  </select>
 
 </mapper>

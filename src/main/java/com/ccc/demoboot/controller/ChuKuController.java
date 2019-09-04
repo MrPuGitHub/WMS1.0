@@ -92,15 +92,27 @@ public class ChuKuController {
 
     //根据订单生成出库单
     @RequestMapping("/makeChuKuDan")
-    public String  makeChuKuDan(){
+    public String  makeChuKuDan(HttpServletRequest request){
+
+        String userId =(String) request.getSession().getAttribute("userId");
+        System.out.println("userId="+userId);
 
         ChuKuClient cc = new ChuKuClient();
 
         List<HashMap<String, String>> list = cc.get();
 
-        //测试输出值
+        ChuKuDan ckd = new ChuKuDan();
+
         for (HashMap<String, String> stringStringHashMap:list){
-            System.out.println(stringStringHashMap);
+            ckd.setOutnum(Integer.parseInt(stringStringHashMap.get("quantity")));
+            ckd.setAddress(stringStringHashMap.get("address"));
+            ckd.setUname(stringStringHashMap.get("uname"));
+            ckd.setOrderid(Integer.parseInt(stringStringHashMap.get("orderid")));
+            ckd.setGoodid(Integer.parseInt(stringStringHashMap.get("goodsid")));
+            ckd.setTel(stringStringHashMap.get("15656233652"));
+//            ckd.setUserid(Integer.parseInt(userId));
+
+            chuKuService.insertChuKuDanByDingDan(ckd);
         }
 
         return "ChuKu/ChuKuGuanLi";

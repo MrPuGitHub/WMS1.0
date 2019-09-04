@@ -62,13 +62,17 @@ public class ChuKuClient {
                 HashMap<String,String> sm = new HashMap<>();
                 for(int j = 0;j < cs1.length;j++){
                     String cs2[] = cs1[j].split(":");
+                    cs2[0] = cs2[0].substring(1,cs2[0].length()-1);
+                    if(cs2[1].startsWith("\"")){
+                        cs2[1] = cs2[1].substring(1,cs2[1].length()-1);
+                    }
+
+                    cs2[1].replaceAll("\""," ");
                     sm.put(cs2[0],cs2[1]);
                 }
                 list.add(sm);
             }
 
-
-            System.out.println(list.get(0));
 
 
 
