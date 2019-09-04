@@ -6,24 +6,19 @@ import com.ccc.demoboot.domain.Pandian;
 import com.ccc.demoboot.domain.PanyinPankui;
 import com.ccc.demoboot.domain.Shelf;
 import com.ccc.demoboot.domain.Warehouse;
-import com.ccc.demoboot.myproperties.MyProperties;
 import com.ccc.demoboot.service.PandianService;
 import com.ccc.demoboot.service.PanyinPankuiService;
 import com.ccc.demoboot.service.ShelfService;
 import com.ccc.demoboot.service.WarehouseService;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Controller
@@ -42,16 +37,14 @@ public class PanDianController {
     PanyinPankuiService panyinPankuiService;
 
 
-
-
     @RequestMapping(value = "/pandian")
     public String pandian(HttpServletRequest req) {
-        List<Pandian> panDianList =pandianService.selectAllPanDian();
-        System.out.println(panDianList.get(0).getPdtime());
-        req.setAttribute("panDianList", panDianList);
+
+        List<Pandian> pandianlist = pandianService.selectAllPanDian();
+        req.setAttribute("pandianlist", pandianlist);
+
         return "PanDian/pandian";
     }
-
 
 
     @RequestMapping(value = "/warehouse")
@@ -61,7 +54,7 @@ public class PanDianController {
 
         List<Shelf> shelfList = shelfService.selectAllShelf();
 
-                System.out.println(warehouseList.get(0).getWarehouseName());
+        System.out.println(warehouseList.get(0).getWarehouseName());
 
         req.setAttribute("warehouseList", warehouseList);
 
@@ -83,16 +76,13 @@ public class PanDianController {
      * 查询盘点单明细
      */
 
-    @RequestMapping(value = "/panyinpankui/{pageNum}")
-    public String panyinpankui(HttpServletRequest req, @PathVariable(value = "pageNum") int pageNum) {
-        int pageSize = MyProperties.getPagesize();// 每页显示的条数
-        PageHelper.startPage(pageNum, pageSize);
+    @RequestMapping(value = "/panyinpankui/{id}")
+    public String panyinpankui(HttpServletRequest req, @PathVariable("id") Integer param1) {
 
-        List<PanyinPankui> panyinpankuiList = panyinPankuiService.selectAllPanyinPankui();
-        PageInfo pageInfo = new PageInfo(panyinpankuiList);
+        System.out.println("pk=" + param1);
 
-        req.setAttribute("panyinpankuiList", panyinpankuiList);
-        req.setAttribute("pageInfo", pageInfo);
+        List<PanyinPankui> lllll = panyinPankuiService.selectByIdPanDian(param1);
+        req.setAttribute("lllll", lllll);
 
         return "PanDian/pandian-detail";
     }

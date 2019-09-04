@@ -1,5 +1,6 @@
 package com.ccc.demoboot.service;
 
+import com.ccc.demoboot.domain.Pandian;
 import com.ccc.demoboot.domain.PanyinPankui;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface PanyinPankuiService{
     int updateByPrimaryKey(PanyinPankui record);
 
     List<PanyinPankui> selectAllPanyinPankui();
+
+    List<PanyinPankui> selectByIdPanDian(Integer pandianid);
 }

@@ -28,6 +28,7 @@ public class ShelfServiceImpl implements ShelfService {
 
     @Override
     public int updateGoods(Shelf shelf) {
+
         return shelfMapper.updateByPrimaryKey(shelf);
     }
 }

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccc.demoboot.mapper.ShelfMapper">
+<!--退货-->
+    <select id="selectAllByGoodid" resultType="com.ccc.demoboot.domain.Shelf">
+        SELECT * FROM shelf WHERE goodId=#{goodid}
+    </select>
 
+  <!--出库  -->
     <select id="selectByGoodid" resultType="com.ccc.demoboot.domain.Shelf">
-        SELECT t.*
-        FROM wms.shelf t
-        WHERE goodId=#{param1}
-        and warehouseid=#{param2}
+    SELECT t.*
+    FROM wms.shelf t
+    WHERE goodId=#{param1}
+    and warehouseid=#{param2}
 
 
     </select>
+
 </mapper>

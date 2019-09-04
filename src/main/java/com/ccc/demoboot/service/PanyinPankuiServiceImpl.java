@@ -49,4 +49,9 @@ public class PanyinPankuiServiceImpl implements PanyinPankuiService{
         return panyinPankuiMapper.selectAll();
     }
 
+    @Override
+    public List<PanyinPankui> selectByIdPanDian(Integer pandianid) {
+        return panyinPankuiMapper.selectByIdPanDian(pandianid);
+    }
+
 }
