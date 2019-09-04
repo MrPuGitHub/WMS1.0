@@ -57,7 +57,7 @@
 <br/>
 <br/>
 <br/>
-<<form style="text-align: center;" action="<%=path %>/checkLogin" method="post" class="form-horizontal">
+<form style="text-align: center;" action="<%=path %>/checkLogin" method="post" class="form-horizontal">
     <div class="form-group">
         <label for="exampleInputEmail1"><h3>用户名：</h3></label>
         <input type="text" name="name" id="exampleInputEmail1" placeholder="请输入用户名">

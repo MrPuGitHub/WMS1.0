@@ -45,7 +45,11 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">盘点单号</label>
                 <div class="col-sm-10">
-                    <input class="form-control commonbor" name="pandiandanid" placeholder="输入盘点单编号">
+                    <select name="pandiandanid" class="form-control commonbor">
+                        <c:forEach items="${pandianList}" var="v">
+                            <option>${v.id}</option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
             <div class="form-group">

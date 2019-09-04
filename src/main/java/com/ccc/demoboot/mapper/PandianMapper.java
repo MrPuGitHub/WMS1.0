@@ -8,5 +8,7 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface PandianMapper extends Mapper<Pandian> {
 
+    List<Pandian> selectPanDian(Pandian pd);
+
 
 }
