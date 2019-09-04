@@ -88,7 +88,7 @@ public class PanDianController {
 
         panyinPankuiService.insert(record);
 
-        return "redirect:/pandian";
+        return "redirect:/pandian/1";
     }
 
     /**
