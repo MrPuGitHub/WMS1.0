@@ -12,6 +12,7 @@ import com.ccc.demoboot.toCaiGou.ChuKuDanToCaiGou;
 import com.github.pagehelper.PageHelper;
 
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.collections.bag.SynchronizedSortedBag;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,8 +95,8 @@ public class ChuKuController {
     @RequestMapping("/makeChuKuDan")
     public String  makeChuKuDan(HttpServletRequest request){
 
-        String userId =(String) request.getSession().getAttribute("userId");
-        System.out.println("userId="+userId);
+        int userId = (int)request.getSession().getAttribute("UserId");
+
 
         ChuKuClient cc = new ChuKuClient();
 
@@ -110,7 +111,7 @@ public class ChuKuController {
             ckd.setOrderid(Integer.parseInt(stringStringHashMap.get("orderid")));
             ckd.setGoodid(Integer.parseInt(stringStringHashMap.get("goodsid")));
             ckd.setTel(stringStringHashMap.get("15656233652"));
-//            ckd.setUserid(Integer.parseInt(userId));
+            ckd.setUserid(userId);
 
             chuKuService.insertChuKuDanByDingDan(ckd);
         }
@@ -125,7 +126,7 @@ public class ChuKuController {
     @RequestMapping("/ChuKuWork/{chukuid}")
     public String  ChuKuWork(HttpServletRequest request, @PathVariable(value="chukuid") Integer chukuid){
 
-        System.out.println("chukuid"+chukuid);
+        System.out.println("chukuid="+chukuid);
 
         return "ChuKu/ChuKuWork";
     }
