@@ -77,7 +77,7 @@
                     <td>${v.state}</td>
                     <td>${v.userid}</td>
                     <td>
-                        <button onclick="window.location.href='/view/ChuKu/ChuKuWork.jsp'" class="btn btn-primary">查看</button>
+                        <button onclick="window.location.href='<%=path%>/ChuKuWork/${v.chukuid}'" class="btn btn-primary">查看</button>
                     </td>
                 </tr>
 

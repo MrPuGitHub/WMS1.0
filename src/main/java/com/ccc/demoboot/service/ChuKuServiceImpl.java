@@ -51,7 +51,20 @@ public class ChuKuServiceImpl implements ChuKuService{
         return chuKuDanMapper.selChuKuDanByTiaoJian(chukuid,state,startTime,endTime);
     }
 
+//    根据订单生成出库单
+    @Override
+    public void insertChuKuDanByDingDan(ChuKuDan ck) {
+        chuKuDanMapper.insertChuKuDanByDingDan(ck);
+    }
 
+    @Override
+    public ChuKuDan selChuKuDanBuChukuid(Integer chukuid) {
+        ChuKuDan c = new ChuKuDan();
+        c.setChukuid(chukuid);
+        List<ChuKuDan> select = chuKuDanMapper.select(c);
+        c = select.get(0);
+        return c;
+    }
 
 
     @Override

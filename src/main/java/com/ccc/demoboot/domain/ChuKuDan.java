@@ -3,8 +3,6 @@ package com.ccc.demoboot.domain;
 import java.util.Date;
 
 public class ChuKuDan {
-    private Integer id;
-
     private Integer chukuid;
 
     private Integer goodid;
@@ -21,13 +19,11 @@ public class ChuKuDan {
 
     private Integer sendorderid;
 
-    public Integer getId() {
-        return id;
-    }
+    private String address;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String uname;
+
+    private String tel;
 
     public Integer getChukuid() {
         return chukuid;
@@ -93,5 +89,27 @@ public class ChuKuDan {
         this.sendorderid = sendorderid;
     }
 
+    public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getUname() {
+        return uname;
+    }
+
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
 }

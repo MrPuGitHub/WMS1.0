@@ -24,14 +24,9 @@
 <body>
 
 
-        <%--打印所有订单--%>
-        <h2 style="text-align: center">订单信息</h2>
 
-        <%--<c:forEach items="${}" var="v">--%>
 
-        <%--</c:forEach>--%>
-
-        <button type="button" class="btn btn-primary" style="text-align: center" onclick="window.location.href='xxxx'">
+        <button type="button" class="btn btn-primary" style="text-align: center;width: 500px;height: 500px;margin-left: 30%;margin-top: 300px" onclick="window.location.href='<%=path%>/makeChuKuDan'">
             生成发货单</button>
 
 
