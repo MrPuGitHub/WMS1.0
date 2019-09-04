@@ -14,15 +14,14 @@
 </head>
 <body>
 <h2>当前位置:仓库管理 -> 退货管理
-    <input type="submit" class="btn btn-primary" value="返回" onclick="window.open('mrbguanli.jsp')"/>
+    <input type="submit" class="btn btn-primary" value="返回" onclick="window.location.href='mrbguanli.jsp'"/>
 </h2>
 <br/>
 <br/>
 <div style="margin:0 auto;text-align: center">
-    <%--<input type="text" class="form-control" style="margin-left: 400px;text-align: center; width: 450px;float: left" placeholder="ss">
-    <button type="submit" class="btn btn-primary" style="margin-left: -600px;">查询</button>--%>
+    <%--
         <input type="text" class="form-control" style="display: inline-block; width: 450px" placeholder="请输入商品编号">
-        <input type="submit" class="btn btn-primary" value="查询"/>
+        <input type="submit" class="btn btn-primary" value="查询"/>--%>
 </div>
 <br/>
 <table class="table  table-bordered" style="text-align: center">
@@ -40,13 +39,13 @@
     </tr>
     <tr>
         <td><input type="checkbox"/></td>
-        <td>001</td>
-        <td>2</td>
-        <td>2019/8/29</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>id</td>
+        <td>orderid</td>
+        <td>outtime</td>
+        <td>goodid</td>
+        <td>goodamount</td>
+        <td>userid</td>
+        <td>description</td>
         <td><input type="submit" class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/1'" value="操作"/></td>
     </tr>
     <%--遍历获取到的发货单集合fhList开始--%>
@@ -67,12 +66,14 @@
     总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
     <br/>
 
-    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum-1}/all'">上一页</button>
-    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum+1}/all'">下一页</button>
-    `
+    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum-1}'">上一页</button>
+    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum+1}'">下一页</button>
+
 
 </div>
-<input type="submit" class="btn btn-primary" style="margin-left:90%" value="退出"/>
+<%--
+<input type="submit" class="btn btn-primary" style="margin-left:90%" value="退出" onclick="window.AbortController.href='view/shouye/login.jsp'"/>
+--%>
 
 </body>
 </html>

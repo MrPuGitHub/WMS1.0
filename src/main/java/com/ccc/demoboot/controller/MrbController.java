@@ -42,8 +42,6 @@ public class MrbController {
             pageInfo = new PageInfo<>(list);
         }
 
-
-
         request.setAttribute("pageInfo",pageInfo);
         request.setAttribute("shelfList",list);
         return "mrb/mrboperation";

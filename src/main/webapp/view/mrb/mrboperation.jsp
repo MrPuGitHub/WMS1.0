@@ -16,8 +16,7 @@
 <body>
 <h2>当前位置:仓库管理 -> 退货管理 -> 货架
 <%--
-    <input type="submit" class="btn btn-primary" value="返回" onclick="window.open('mrbguanli.jsp')"/>
---%>
+    <input type="submit" class="btn btn-primary" value="返回" onclick="window.location.href='mrblist.jsp'"/>--%>
 </h2>
 <br/>
 <br/>
