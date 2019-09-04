@@ -6,6 +6,7 @@ package com.ccc.demoboot.controller;
 
 
 import com.ccc.demoboot.domain.ChuKuDan;
+import com.ccc.demoboot.httpClient.ChuKuClient;
 import com.ccc.demoboot.service.ChuKuService;
 import com.ccc.demoboot.toCaiGou.ChuKuDanToCaiGou;
 import com.github.pagehelper.PageHelper;
@@ -25,6 +26,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -73,10 +75,6 @@ public class ChuKuController {
                 String state = request.getParameter("zhuangTai");
                 String startTime = request.getParameter("startTime");
                 String endTime = request.getParameter("endTime");
-                System.out.println("chukuid="+chukuid);
-                System.out.println("state="+state);
-                System.out.println("startTime="+startTime);
-                System.out.println("endTime="+endTime);
                 PageHelper.startPage(pageNum, 5);
                 chuKuDanList = chuKuService.selChuKuDanByTiaoJian(chukuid,state,startTime,endTime);
                 break;
@@ -90,6 +88,23 @@ public class ChuKuController {
     }
 
 
+
+
+    //根据订单生成出库单
+    @RequestMapping("/makeChuKuDan")
+    public String  makeChuKuDan(){
+
+        ChuKuClient cc = new ChuKuClient();
+
+        List<HashMap<String, String>> list = cc.get();
+
+        //测试输出值
+        for (HashMap<String, String> stringStringHashMap:list){
+            System.out.println(stringStringHashMap);
+        }
+
+        return "ChuKu/ChuKuGuanLi";
+    }
 
 
 
