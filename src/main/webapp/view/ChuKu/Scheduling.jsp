@@ -35,11 +35,11 @@
             <caption style="text-align: center">商品调度</caption>
             <tr>
                 <td>商品编号</td>
-                <td>x</td>
+                <td>${chuKuDan.goodid}</td>
             </tr>
             <tr>
                 <td>商品数量</td>
-                <td>y</td>
+                <td>${chuKuDan.outnum}</td>
             </tr>
             <tr>
                 <td>

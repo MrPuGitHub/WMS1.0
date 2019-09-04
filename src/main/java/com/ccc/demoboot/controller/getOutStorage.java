@@ -109,6 +109,8 @@ public class getOutStorage {
             sNum = sNum + s;
             if (goodNum <= sNum) {
                 model.addAttribute(warehouseList);
+                model.addAttribute(chuKuDan);
+
                 return "/ChuKu/Scheduling";
             }
         }
@@ -124,6 +126,7 @@ public class getOutStorage {
     public String selectShelf(Model model, @PathVariable(value = "id") int id) {
         //查询商品所在货架
         shelfList = shelfService.selectByGoodid(chuKuDan.getGoodid(), id);
+        model.addAttribute(chuKuDan);
         model.addAttribute(warehouseList);
         model.addAttribute(shelfList);
         return "/ChuKu/Scheduling";
