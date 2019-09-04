@@ -36,7 +36,7 @@ public class ChuKuController {
     private ChuKuService chuKuService;
 
 
-//    出库列表页面
+    //    出库列表页面
 //    md代表查询方式
     @RequestMapping("/chuku/{pageNum}/{md}")
     public String chuku(HttpServletRequest request, @PathVariable(value="pageNum") Integer pageNum,@PathVariable(value="md") String md){
@@ -52,11 +52,11 @@ public class ChuKuController {
             case "all" :
                 PageHelper.startPage(pageNum, 5);
                 chuKuDanList = chuKuService.selAllChuKuDan();
-            break;
+                break;
             case "week" :
                 PageHelper.startPage(pageNum, 5);
                 chuKuDanList = chuKuService.selChuKuDanInWeek();
-            break;
+                break;
             case "month" :
                 PageHelper.startPage(pageNum, 5);
                 chuKuDanList = chuKuService.selChuKuDanInMonth();
