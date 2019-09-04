@@ -61,7 +61,7 @@
             <td>${v.goodamount}</td>
                 <td>${v.warehouseid}</td>
                 <td>${v.shelfposition}</td>
-                <td><input type="submit" class="btn btn-primary" value="加入"/></td>
+                <td><input type="submit" class="btn btn-primary" value="加入" /></td>
 
         </tr>
         </c:forEach>

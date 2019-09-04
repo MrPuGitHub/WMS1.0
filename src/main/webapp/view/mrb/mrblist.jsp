@@ -14,7 +14,6 @@
 </head>
 <body>
 <h2>当前位置:仓库管理 -> 退货管理
-    <input type="submit" class="btn btn-primary" value="返回" onclick="window.location.href='mrbguanli.jsp'"/>
 </h2>
 <br/>
 <br/>
@@ -50,13 +49,17 @@
     </tr>
     <%--遍历获取到的发货单集合fhList开始--%>
     <tr>
-        <c:forEach items="${roleList}" var="v" varStatus="vs">
+        <c:forEach items="${Mrb}" var="v" varStatus="vs">
         <td><input type="checkbox"/></td>
         <td>${v.id}</td>
-        <td>2</td>
-            <td></td>
-        <td>2019.9.2</td>
-        <td><input type="submit" class="btn btn-primary" value="操作" onclick="window.location.href='<%=path%>/mrboperation'"/></td>
+        <td>${v.orderid}</td>
+            <td>${v.outtime}</td>
+            <td>${v.goodid}</td>
+            <td>${v.goodamount}</td>
+            <td>${v.userid}</td>
+            <td>${v.description}</td>
+
+            <td><input type="submit" class="btn btn-primary" value="操作" onclick="window.location.href='<%=path%>/selAllShelf/1/'"/></td>
     </tr>
     </c:forEach>
 </table>

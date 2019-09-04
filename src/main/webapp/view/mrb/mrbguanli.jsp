@@ -22,7 +22,7 @@
 </head>
 <body>
 <div style="margin-top: 20%">
-    <div class="div1" href="" onclick="window.location.href='mrblist.jsp'">
+    <div class="div1" href="" onclick="window.location.href='<%=path%>/mrblist'">
         <img src="/img/tuihuo.png" id="exampleInputEmail1"/>
         <br/>
         <label for="exampleInputEmail1"><h2>退货管理</h2></label>
