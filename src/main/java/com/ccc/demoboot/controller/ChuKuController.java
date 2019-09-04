@@ -121,6 +121,16 @@ public class ChuKuController {
 
 
 
+    //根据订单生成出库单
+    @RequestMapping("/ChuKuWork/{chukuid}")
+    public String  ChuKuWork(HttpServletRequest request, @PathVariable(value="chukuid") Integer chukuid){
+
+        System.out.println("chukuid"+chukuid);
+
+        return "ChuKu/ChuKuWork";
+    }
+
+
 
 
 

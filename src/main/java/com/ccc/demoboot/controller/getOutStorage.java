@@ -1,8 +1,10 @@
 package com.ccc.demoboot.controller;
 
+import com.ccc.demoboot.domain.ChuKuDan;
 import com.ccc.demoboot.domain.Sendorder;
 import com.ccc.demoboot.domain.Shelf;
 import com.ccc.demoboot.domain.Warehouse;
+import com.ccc.demoboot.service.ChuKuService;
 import com.ccc.demoboot.service.SendorderService;
 import com.ccc.demoboot.service.ShelfService;
 import com.ccc.demoboot.service.WarehouseService;
@@ -28,6 +30,10 @@ import java.util.UUID;
  */
 @Controller
 public class getOutStorage {
+
+    @Resource(name="chuKuServiceImpl")
+    private ChuKuService chuKuService;
+
     @Resource(name = "warehouseServiceImpl")
     WarehouseService warehouseService;
     @Resource(name = "shelfServiceImpl")
@@ -80,6 +86,12 @@ public class getOutStorage {
 
     @RequestMapping("/scheduling/{id}")
     public String Scheduling(Model model, @PathVariable(value = "id") int id) {
+
+        ChuKuDan chuKuDan = chuKuService.selChuKuDanBuChukuid(id);
+        System.out.println(chuKuDan.getGoodid());
+        System.out.println(chuKuDan.getOutnum());
+
+
         System.out.println("执行调度");
         //接收来自订单的信息
         int goodId = 23;

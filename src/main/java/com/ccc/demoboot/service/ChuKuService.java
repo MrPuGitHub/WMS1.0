@@ -26,6 +26,9 @@ public interface ChuKuService {
     //根据订单生成出库单
     void insertChuKuDanByDingDan(ChuKuDan ck);
 
+    //根据chukuid查询出库单
+    ChuKuDan selChuKuDanBuChukuid(Integer chukuid);
+
 
 
 
