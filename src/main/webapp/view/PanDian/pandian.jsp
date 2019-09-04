@@ -41,20 +41,26 @@
 
 
     <%--查询部分--%>
-    <form id="fm1" action="<%=path%>/pandian/" method="post">
-            日期范围:<input type="date" class="form-control" id="datemin" style="display: inline-block; width: 150px"
-            placeholder="开始时间"/>&nbsp;--&nbsp;
-            <input type="date" class="form-control" id="datemax" style="display: inline-block; width: 150px"
-                   placeholder="结束时间"/>&nbsp;&nbsp;
-            盘点单号:<input type="text" class="form-control" style="display: inline-block; width: 150px"
-            placeholder="请输入盘点单号" name="id" value="${pd.id}">
-            <button type="submit" class="btn btn-primary"/>
-            搜索</button>
-    </form>
-    <div>
-        <input type="submit" class="btn btn-primary" value="生成盘点单"
-               onclick="window.location.href='<%=path%>/warehouse'"/>
-    </div>
+        <table class="table" style="align-content: center">
+    <tr>
+        <td class="col-sm-4">
+            <form id="fm1" action="<%=path%>/pandian/1" method="post">
+                日期范围:<input type="date" class="form-control" id="datemin" style="display: inline-block; width: 150px"
+                            placeholder="开始时间"/>&nbsp;--&nbsp;
+                <input type="date" class="form-control" id="datemax" style="display: inline-block; width: 150px"
+                       placeholder="结束时间"/>&nbsp;&nbsp;
+                盘点单号:<input type="text" class="form-control" style="display: inline-block; width: 150px"
+                            placeholder="请输入盘点单号" name="id" value="${pd.id}">
+                <button type="submit" class="btn btn-primary"/>搜索</button>
+            </form>
+        </td >
+        <td class="col-sm-2">
+            <input type="submit" class="btn btn-primary" value="生成盘点单"
+                   onclick="window.location.href='<%=path%>/warehouse'"/>
+        </td>
+    </tr>
+        </table>
+
     <%--表格部分--%>
     <table class="table  table-bordered" style="align-content: center">
         <tr class="text-c">
@@ -92,30 +98,46 @@
 
 
     <%--分页--%>
-    <div style="text-align: center;">
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                <li><a href="javascript:void(0)" aria-label="Previous" onclick="nextpage(1)"> <span
-                        aria-hidden="true">首页</span>
-                </a></li>
+        <div style="text-align: center;">
+            <nav >
+                <ul class="pagination">
+                    <li>
+                        <a href="<%=path%>/pandian/1" aria-label="Previous">
+                            <span aria-hidden="true">首页</span>
+                        </a>
+                        <a href="<%=path%>/pandian/${pageinfo.pageNum-1}" aria-label="Previous">
+                            <span aria-hidden="true">上一页</span>
+                        </a>
 
-                <c:forEach items="${pageInfo.getNavigatepageNums()}" var="v">
-                    <c:choose>
-                        <c:when test="${v==pageInfo.pageNum}">
-                            <li><a href="javascript:void(0)" onclick="nextpage(${v})"
-                                   style="background-color: #5bc0de;">${v }</a></li>
-                        </c:when>
-                        <c:otherwise>
-                            <li><a href="javascript:void(0)" onclick="nextpage(${v})">${v }</a></li>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
+                    </li>
+                    <c:forEach items="${pageinfo.getNavigatepageNums() }" var="page">
 
-                <li><a onclick="nextpage(${pageInfo.pages})" href="javascript:void(0)" aria-label="Next"> <span
-                        aria-hidden="true">末页</span>
-                </a></li>
-            </ul>
-        </nav>
-    </div>
+                        <c:choose>
+                            <c:when test="${page==pageinfo.pageNum}">
+                                <li><a style="background-color: #00BFFF" href="<%=path%>/pandian/${page }">${page}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="<%=path%>/pandian/${page }">${page}</a></li>
+                            </c:otherwise>
+
+                        </c:choose>
+
+                    </c:forEach>
+                    <li>
+                        <a href="<%=path%>/pandian/${pageinfo.pageNum+1}" aria-label="Previous">
+                            <span aria-hidden="true">下一页</span>
+                        </a>
+                        <a href="<%=path%>/pandian/${pageinfo.getPages() }" aria-label="Next">
+                            <span aria-hidden="true">尾页</span>
+                        </a>
+                        <%--<td><button type="button" class="btn btn-info"--%>
+                                    <%--onclick="location.href='<%=path%>/addEmp'">增加</button>--%>
+
+                            <%--<button type="button" class="btn btn-danger">批量删除</button></td>--%>
+
+                    </li>
+                </ul>
+            </nav>
+        </div>
 </body>
 </html>
