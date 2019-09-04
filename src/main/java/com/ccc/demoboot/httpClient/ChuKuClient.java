@@ -8,39 +8,79 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.junit.Test;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+@Service
 public class ChuKuClient {
 
-    private static RequestConfig requestConfig = RequestConfig.custom()
+    public static RequestConfig requestConfig = RequestConfig.custom()
             .setSocketTimeout(15000).setConnectTimeout(15000)
             .setConnectionRequestTimeout(15000).build();
 
+
     // 发送get请求
     @Test
-    public void get( ) throws Exception, IOException {
-         String url = "http://192.168.1.22:8080/getallorderanddetail";//没有参数
-//        String url = "http://localhost:8080/mavprj/y/selalluser?page=2";//可以传参数
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(url);
+    public List<HashMap<String,String>> get(){
 
-        httpGet.setConfig(requestConfig);
-        // 执行请求
-        CloseableHttpResponse response = httpClient.execute(httpGet);
-        HttpEntity entity = response.getEntity();
-        String responseContent = EntityUtils.toString(entity, "UTF-8");
+        //将字符串转为List<Map<String,String>>集合
+        List<HashMap<String,String>> list= new ArrayList<>();
 
-//        System.out.println(responseContent);
+        try{
+            String url = "http://192.168.1.22:8080/getallorderanddetail";//没有参数
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            HttpGet httpGet = new HttpGet(url);
 
-        String[] s1 = responseContent.split(",");
-        System.out.println(s1[2]);
-        //ObjectMapper om = new ObjectMapper();
-        //JavaType javaType1 = om.getTypeFactory().constructParametricType(ArrayList.class, 	//User2.class);//json转list
-        //List<User2> list = om.readValue(listJson,javaType1);
-        // 关闭连接
-        response.close();
-        httpClient.close();
+            httpGet.setConfig(requestConfig);
+            // 执行请求
+            CloseableHttpResponse response = httpClient.execute(httpGet);
+            HttpEntity entity = response.getEntity();
+            String responseContent = EntityUtils.toString(entity, "UTF-8");
+
+
+
+            String s1 = responseContent.substring(1,responseContent.length()-2);
+            String[] s2 = s1.split("}");
+
+            //去除无用符号
+            for(int i = 0;i < s2.length;i++){
+                if(s2[i].startsWith(",")){
+                    s2[i]=s2[i].substring(1);
+                }
+            }
+            for(int i = 0;i < s2.length;i++){
+                s2[i]=s2[i].substring(1);
+            }
+            //拆分
+            for(int i = 0;i < s2.length;i++){
+                String[] cs1 = s2[i].split(",");
+                System.out.println(cs1);
+                HashMap<String,String> sm = new HashMap<>();
+                for(int j = 0;j < cs1.length;j++){
+                    String cs2[] = cs1[j].split(":");
+                    sm.put(cs2[0],cs2[1]);
+                }
+                list.add(sm);
+            }
+
+
+            System.out.println(list.get(0));
+
+
+
+//        关闭连接
+            response.close();
+            httpClient.close();
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+        return list;
     }
 
 }
