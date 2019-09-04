@@ -14,7 +14,12 @@
 
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
-
+    <script type="text/javascript">
+        function nextpage(p) {
+            document.getElementById("fm1").action = "<%=path %>/pandian" + p;
+            document.getElementById("fm1").submit();
+        }
+    </script>
 </head>
 
 
@@ -23,32 +28,32 @@
 
 <div style="text-align: center">
 
-    <form action="<%=path%>/view/PanDian/pandiandan.jsp">
-        <%--头部--%>
-        <h2>
-            <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 当前位置:
-                <span class="c-gray en">&gt;&gt;</span> 仓库管理
-                <span class="c-gray en">&gt;&gt;</span> 盘点管理
-                <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
-                   href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">刷新</i></a>
-            </nav>
-        </h2>
+
+    <%--头部--%>
+    <h2>
+        <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 当前位置:
+            <span class="c-gray en">&gt;&gt;</span> 仓库管理
+            <span class="c-gray en">&gt;&gt;</span> 盘点管理
+            <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+               href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">刷新</i></a>
+        </nav>
+    </h2>
 
 
-        <%--查询部分--%>
-        <div>
+    <%--查询部分--%>
+    <form id="fm1" action="<%=path%>/pandian/" method="post">
             日期范围:<input type="date" class="form-control" id="datemin" style="display: inline-block; width: 150px"
-                        placeholder="开始时间"/>&nbsp;--&nbsp;
+            placeholder="开始时间"/>&nbsp;--&nbsp;
             <input type="date" class="form-control" id="datemax" style="display: inline-block; width: 150px"
                    placeholder="结束时间"/>&nbsp;&nbsp;
             盘点单号:<input type="text" class="form-control" style="display: inline-block; width: 150px"
-                        placeholder="请输入盘点单号">
-            <input type="submit" class="btn btn-primary" value="查询"/>
-        </div>
-
+            placeholder="请输入盘点单号" name="id" value="${pd.id}">
+            <button type="submit" class="btn btn-primary"/>
+            搜索</button>
     </form>
     <div>
-        <input type="submit" class="btn btn-primary" value="生成盘点单"  onclick="window.location.href='<%=path%>/warehouse'"/>
+        <input type="submit" class="btn btn-primary" value="生成盘点单"
+               onclick="window.location.href='<%=path%>/warehouse'"/>
     </div>
     <%--表格部分--%>
     <table class="table  table-bordered" style="align-content: center">
@@ -63,25 +68,26 @@
             <td>操作</td>
         </tr>
         <%--遍历--%>
-<c:forEach items="${pandianlist}" var="v" varStatus="vs">
-        <tr>
-            <td><input type="checkbox"/></td>
-            <td>${vs.count}</td>
-            <td>${v.id}</td>
-            <td>${v.pdrname}</td>
-            <td>
-            <fmt:formatDate value="${v.pdtime}" type="date" pattern="yyyy年MM月dd日"/>
-            </td>
-            <td>
-                <%--<input type="button" class="btn btn-primary" value="查看"--%>
-                       <%--onclick="window.location.href='<%=path%>/panyinpankui/${v.panyinPankuiObj}'"/>--%>
-                    <button  class="btn btn-primary" value="查看"
-                           onclick="window.location.href='<%=path%>/panyinpankui/${v.id}'">查看</button>
+        <c:forEach items="${pandianlist}" var="v" varStatus="vs">
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>${vs.count}</td>
+                <td>${v.id}</td>
+                <td>${v.pdrname}</td>
+                <td>
+                    <fmt:formatDate value="${v.pdtime}" type="date" pattern="yyyy年MM月dd日"/>
+                </td>
+                <td>
+                        <%--<input type="button" class="btn btn-primary" value="查看"--%>
+                        <%--onclick="window.location.href='<%=path%>/panyinpankui/${v.panyinPankuiObj}'"/>--%>
+                    <button class="btn btn-primary" value="查看"
+                            onclick="window.location.href='<%=path%>/panyinpankui/${v.id}'">查看
+                    </button>
 
 
-            </td>
-        </tr>
-</c:forEach>
+                </td>
+            </tr>
+        </c:forEach>
     </table>
 
 
