@@ -38,9 +38,9 @@ public class PanDianController {
 
 
     @RequestMapping(value = "/pandian")
-    public String pandian(HttpServletRequest req) {
+    public String pandian(HttpServletRequest req,Pandian pd) {
 
-        List<Pandian> pandianlist = pandianService.selectAllPanDian();
+        List<Pandian> pandianlist = pandianService.selectAllPanDian(pd);
         req.setAttribute("pandianlist", pandianlist);
 
         return "PanDian/pandian";
@@ -54,11 +54,14 @@ public class PanDianController {
 
         List<Shelf> shelfList = shelfService.selectAllShelf();
 
+        List<Pandian> pandianList = pandianService.selectAllPanDian();
+
         System.out.println(warehouseList.get(0).getWarehouseName());
 
         req.setAttribute("warehouseList", warehouseList);
-
         req.setAttribute("shelfList", shelfList);
+        req.setAttribute("pandianList", pandianList);
+
         return "PanDian/pandiandan";
     }
 
@@ -69,7 +72,7 @@ public class PanDianController {
 
         panyinPankuiService.insert(record);
 
-        return "redirect:/panyinpankui/1";
+        return "redirect:/pandian";
     }
 
     /**
