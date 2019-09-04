@@ -31,7 +31,7 @@ import java.util.UUID;
 @Controller
 public class getOutStorage {
 
-    @Resource(name="chuKuServiceImpl")
+    @Resource(name = "chuKuServiceImpl")
     private ChuKuService chuKuService;
 
     @Resource(name = "warehouseServiceImpl")
@@ -42,6 +42,7 @@ public class getOutStorage {
     Sendorder sendorder;
     @Resource(name = "sendorderServiceImpl")
     SendorderService sendorderService;
+
     /**
      * 获取订单信息
      */
@@ -77,19 +78,20 @@ public class getOutStorage {
         return res;
     }
 
-
+    List<Warehouse> warehouseList;//保存商品所在仓库
     List<Shelf> shelfList;//保存商品货架信息
+    ChuKuDan chuKuDan;//保存出库单的信息
 
     /**
-     * 点击调度时查询商品所在的仓库，和商品所在货架
+     * 点击调度时查询商品所在的仓库
      */
 
     @RequestMapping("/scheduling/{id}")
     public String Scheduling(Model model, @PathVariable(value = "id") int id) {
 
-        ChuKuDan chuKuDan = chuKuService.selChuKuDanBuChukuid(id);
-        System.out.println("goodId="+chuKuDan.getGoodid());
-        System.out.println("goodNum="+chuKuDan.getOutnum());
+        chuKuDan = chuKuService.selChuKuDanBuChukuid(id);
+        System.out.println("goodId=" + chuKuDan.getGoodid());
+        System.out.println("goodNum=" + chuKuDan.getOutnum());
 
 
         System.out.println("执行调度");
@@ -97,23 +99,35 @@ public class getOutStorage {
         int goodId = chuKuDan.getGoodid();
         int goodNum = chuKuDan.getOutnum();
         //查询商品所在仓库
-        List<Warehouse> warehouseList = warehouseService.selectByGoodid(goodId);
+        warehouseList = warehouseService.selectByGoodid(goodId);
+        //判断仓库中的商品数量是否充足，支持此次发货
         int sNum = 0;
         for (int i = 0; i < warehouseList.size(); i++) {
             int s = warehouseList.get(i).getGoodamount();
 
             sNum = sNum + s;
             if (goodNum <= sNum) {
-                //查询商品所在货架
-                shelfList = shelfService.selectByGoodid(goodId, id);
                 model.addAttribute(warehouseList);
-                model.addAttribute(shelfList);
                 return "/ChuKu/Scheduling";
             }
         }
-        System.out.println("no");
-        return null;
+        System.out.println("该商品不存在或数量不足");
+        return "/ChuKu/ChuKuWork";
     }
+
+    /**
+     * 查询商品所在的货架
+     */
+
+    @RequestMapping("/selectShelf/{id}")
+    public String selectShelf(Model model, @PathVariable(value = "id") int id) {
+        //查询商品所在货架
+        shelfList = shelfService.selectByGoodid(chuKuDan.getGoodid(), id);
+        model.addAttribute(warehouseList);
+        model.addAttribute(shelfList);
+        return "/ChuKu/Scheduling";
+    }
+
 
     /**
      * 打单
@@ -177,6 +191,5 @@ public class getOutStorage {
         //仓库
         return "/ChuKu/checkGoods";
     }
-
 
 }
