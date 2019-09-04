@@ -88,14 +88,14 @@ public class getOutStorage {
     public String Scheduling(Model model, @PathVariable(value = "id") int id) {
 
         ChuKuDan chuKuDan = chuKuService.selChuKuDanBuChukuid(id);
-        System.out.println(chuKuDan.getGoodid());
-        System.out.println(chuKuDan.getOutnum());
+        System.out.println("goodId="+chuKuDan.getGoodid());
+        System.out.println("goodNum="+chuKuDan.getOutnum());
 
 
         System.out.println("执行调度");
         //接收来自订单的信息
-        int goodId = 23;
-        int goodNum = 88;
+        int goodId = chuKuDan.getGoodid();
+        int goodNum = chuKuDan.getOutnum();
         //查询商品所在仓库
         List<Warehouse> warehouseList = warehouseService.selectByGoodid(goodId);
         int sNum = 0;
