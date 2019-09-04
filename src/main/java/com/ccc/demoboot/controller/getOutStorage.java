@@ -44,7 +44,8 @@ public class getOutStorage {
     SendorderService sendorderService;
 
     /**
-     * 获取订单信息
+     * httpclient获取订单信息
+     * 待完善
      */
     @RequestMapping("/getOrder")
     public String http() {
