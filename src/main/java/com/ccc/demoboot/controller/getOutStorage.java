@@ -152,18 +152,17 @@ public class getOutStorage {
 
 
             //发货单编号
-            String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 8);
+            // String uuid = UUID.randomUUID().toString().replace("-", "").substring(0, 8);
             //whNum,shNum接收jsp页面的数据
-            sendorder.setSendorderid(uuid);//订单编号
-            // System.out.println(uuid);
-            sendorder.setUsername("225");//收件人姓名
-            sendorder.setUseraddress("334");//收件人地址
-            sendorder.setTelnum("556");//收件人电话
-            sendorder.setGoodid("36689");//商品编号
-            sendorder.setGoodnum("5555");//商品数量
-            sendorder.setSendname("335");//拣货人
-            sendorder.setSendcom("335");//发货单位
-            sendorder.setComaddress("336");//单位地址
+            sendorder.setSendorderid(chuKuDan.getOrderid().toString());//订单编号
+            sendorder.setUsername(chuKuDan.getUname());//收件人姓名
+            sendorder.setUseraddress(chuKuDan.getAddress());//收件人地址
+            sendorder.setTelnum(chuKuDan.getTel());//收件人电话
+            sendorder.setGoodid(chuKuDan.getGoodid().toString());//商品编号
+            sendorder.setGoodnum(chuKuDan.getOutnum().toString());//商品数量
+            sendorder.setSendname("羊来");//拣货人
+            sendorder.setSendcom("LOL");//发货单位
+            sendorder.setComaddress("召唤师峡谷");//单位地址
 
 
             try {
