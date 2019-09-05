@@ -26,16 +26,16 @@ public class LoginController {
     @RequestMapping(value = "/checkLogin")
     public String checkLogin(HttpServletRequest request, User us) {
 
-        Integer userId = us.getId();
-        request.getSession().setAttribute("userId",userId);
+
         request.getSession().removeAttribute("ms");
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         request.getSession().setAttribute("name",name);
         System.out.println(name + "\t" + password);
         User user = userService.checkLogin(name, password);
+        int UserId=user.getId();
+        request.getSession().setAttribute("UserId",UserId);
 
-        System.out.println(user);
         if (user != null) {
             request.setAttribute("user", user);
             System.out.println("登陆成功");

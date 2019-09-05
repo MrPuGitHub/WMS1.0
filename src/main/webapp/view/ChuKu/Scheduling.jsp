@@ -35,17 +35,17 @@
             <caption style="text-align: center">商品调度</caption>
             <tr>
                 <td>商品编号</td>
-                <td>x</td>
+                <td>${chuKuDan.goodid}</td>
             </tr>
             <tr>
                 <td>商品数量</td>
-                <td>y</td>
+                <td>${chuKuDan.outnum}</td>
             </tr>
             <tr>
                 <td>
                     请选择出货仓库<br>
                     <c:forEach items="${warehouseList}" var="warehouseList">
-                        <a href="/scheduling/${warehouseList.id}">仓库:${warehouseList.id}</a><br>
+                        <a href="/selectShelf/${warehouseList.id}">仓库:${warehouseList.id}</a><br>
                     </c:forEach>
                 </td>
                 <td>

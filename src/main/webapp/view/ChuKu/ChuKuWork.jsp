@@ -38,7 +38,7 @@
 </div>
 
 
-<button type="button" class="btn btn-primary" onclick="window.location.href='/scheduling/1'">调度</button>
+<button type="button" class="btn btn-primary" onclick="window.location.href='/scheduling/${chukuid}'">调度</button>
 <button type="button" class="btn btn-primary" onclick="window.location.href='/sendOrder'">打单</button>
 <button type="button" class="btn btn-primary" onclick="window.location.href='pickGood.jsp'">拣货</button>
 <button type="button" class="btn btn-primary" onclick="window.location.href='/checkOrder'">复核</button>

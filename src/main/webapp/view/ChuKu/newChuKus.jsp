@@ -26,7 +26,7 @@
 
 
 
-        <button type="button" class="btn btn-primary" style="text-align: center" onclick="window.location.href='<%=path%>/makeChuKuDan'">
+        <button type="button" class="btn btn-primary" style="text-align: center;width: 500px;height: 500px;margin-left: 30%;margin-top: 300px" onclick="window.location.href='<%=path%>/makeChuKuDan'">
             生成发货单</button>
 
 

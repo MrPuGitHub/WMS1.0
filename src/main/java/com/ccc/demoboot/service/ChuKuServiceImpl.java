@@ -57,6 +57,15 @@ public class ChuKuServiceImpl implements ChuKuService{
         chuKuDanMapper.insertChuKuDanByDingDan(ck);
     }
 
+    @Override
+    public ChuKuDan selChuKuDanBuChukuid(Integer chukuid) {
+        ChuKuDan c = new ChuKuDan();
+        c.setChukuid(chukuid);
+        List<ChuKuDan> select = chuKuDanMapper.select(c);
+        c = select.get(0);
+        return c;
+    }
+
 
     @Override
     public List<ChuKuDan> selAllToCaiGou() {
