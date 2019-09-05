@@ -2,7 +2,9 @@ package com.ccc.demoboot.service;
 
 
 import com.ccc.demoboot.domain.ChuKuDan;
+import com.ccc.demoboot.domain.Instore;
 import com.ccc.demoboot.mapper.ChuKuDanMapper;
+import com.ccc.demoboot.mapper.InstoreMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,6 +15,10 @@ public class ChuKuServiceImpl implements ChuKuService{
 
     @Resource
     ChuKuDanMapper chuKuDanMapper;
+
+
+    @Resource
+    InstoreMapper instoreMapper;
 
     //    查询所有的的出库单
     @Override
@@ -70,6 +76,11 @@ public class ChuKuServiceImpl implements ChuKuService{
     @Override
     public List<ChuKuDan> selAllToCaiGou() {
         return chuKuDanMapper.selAllToCaiGou();
+    }
+
+    @Override
+    public List<Instore> selAllRuKuGood(Integer goodId) {
+        return chuKuDanMapper.selAllRuKuGood(goodId);
     }
 
 }

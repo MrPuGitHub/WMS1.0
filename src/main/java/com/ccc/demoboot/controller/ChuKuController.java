@@ -6,6 +6,8 @@ package com.ccc.demoboot.controller;
 
 
 import com.ccc.demoboot.domain.ChuKuDan;
+import com.ccc.demoboot.domain.Instore;
+import com.ccc.demoboot.domain.RuKuToCaiGou;
 import com.ccc.demoboot.httpClient.ChuKuClient;
 import com.ccc.demoboot.service.ChuKuService;
 import com.ccc.demoboot.toCaiGou.ChuKuDanToCaiGou;
@@ -35,6 +37,8 @@ public class ChuKuController {
 
     @Resource(name="chuKuServiceImpl")
     private ChuKuService chuKuService;
+
+
 
 
     //    出库列表页面
@@ -173,6 +177,24 @@ public class ChuKuController {
         }
 
         return listc;
+
+    }
+
+
+
+
+
+    //给采购管理提供的方法
+    //返回根据入库单中商品id查询总数量的方法
+    @ResponseBody
+    @RequestMapping("/selAllRuKuGood")
+    public Instore selAllRuKuGood(Integer goodId){
+
+
+        List<Instore> instores = chuKuService.selAllRuKuGood(goodId);
+        Instore instore = instores.get(1);
+
+        return instore;
 
     }
 

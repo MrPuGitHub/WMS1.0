@@ -3,6 +3,7 @@ package com.ccc.demoboot.service;
 
 
 import com.ccc.demoboot.domain.ChuKuDan;
+import com.ccc.demoboot.domain.Instore;
 
 import java.util.List;
 
@@ -40,5 +41,10 @@ public interface ChuKuService {
 
     //给采购的方法
     List<ChuKuDan> selAllToCaiGou();
+
+
+
+    //给采购的方法
+    List<Instore> selAllRuKuGood(Integer goodId);
 
 }
