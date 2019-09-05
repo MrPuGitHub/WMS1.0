@@ -30,11 +30,13 @@
         <td>退货单编号</td>
         <td>订单编号</td>
         <td>退货时间</td>
-        <td>商品编号</td>
+        2<td>商品编号</td>
         <td>商品数量</td>
-        <td>经办人编号</td>
+        1<td>经办人编号</td>
+        3
         <td>退货原因</td>
         <td>操作</td>
+
     </tr>
     <tr>
         <td><input type="checkbox"/></td>
@@ -59,12 +61,12 @@
             <td>${v.userid}</td>
             <td>${v.description}</td>
 
-            <td><input type="submit" class="btn btn-primary" value="操作" onclick="window.location.href='<%=path%>/selAllShelf/1/'"/></td>
+            <td><input type="submit" class="btn btn-primary" value="操作" onclick="window.location.href='<%=path%>/selAllShelf/1/${v.goodid}/${v.goodamount}'"/></td>
     </tr>
     </c:forEach>
 </table>
 
-<div style="text-align: center;">
+<%--<div style="text-align: center;">
 
     总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
     <br/>
@@ -73,7 +75,7 @@
     <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/mrblist/${pageInfo.pageNum+1}'">下一页</button>
 
 
-</div>
+</div>--%>
 <%--
 <input type="submit" class="btn btn-primary" style="margin-left:90%" value="退出" onclick="window.AbortController.href='view/shouye/login.jsp'"/>
 --%>

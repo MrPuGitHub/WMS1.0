@@ -27,6 +27,11 @@ public class MrbController {
     @Resource(name = "mrbServiceImpl")
     MrbService mrbService;
 
+    @RequestMapping(value = "/addgood/{goodid}/{goodamount}")
+    public String addgood(HttpServletRequest request,@PathVariable(value = "goodid") Integer goodid,@PathVariable(value = "goodamount") Integer goodamount){
+        return "redirect:selAllMrb";
+    }
+
     @RequestMapping(value = "selAllMrb")
     public String selAllMrb(HttpServletRequest request) {
         List<Mrb> mrbs = mrbService.selectAllMrb();
@@ -37,15 +42,21 @@ public class MrbController {
     }
 
     //退货货架
-    @RequestMapping(value = "/selAllShelf/{pageNum}")
-    public String selAllShelf(HttpServletRequest request, Shelf shelf, @PathVariable(value = "pageNum") int pageNum) {
+    @RequestMapping(value = "/selAllShelf/{pageNum}/{goodid}/{goodamount}")
+    public String selAllShelf(HttpServletRequest request, Shelf shelf, @PathVariable(value = "pageNum") int pageNum,@PathVariable(value = "goodid") Integer goodid,@PathVariable(value = "goodamount") Integer goodamount){
 
-        String goodid = request.getParameter("goodid");
+
+        request.setAttribute("goodid",goodid);
+        request.setAttribute("goodamount",goodamount);
+
+        System.out.println("goodid=" + goodid);
+        System.out.println("goodamount=" + goodamount);
+        String goodid2 = request.getParameter("goodid");
         // System.out.println(23);
         List<Shelf> list = null;
         PageInfo<Shelf> pageInfo = null;
-        if (goodid != null && goodid != "") {
-            Integer gid = Integer.parseInt(goodid);
+        if (goodid2 != null && goodid2!="") {
+            Integer gid = Integer.parseInt(goodid2);
             PageHelper.startPage(pageNum, 5);
             list = mrbService.selectAllByGoodid(gid);
             pageInfo = new PageInfo<>(list);

@@ -61,7 +61,7 @@
             <td>${v.goodamount}</td>
                 <td>${v.warehouseid}</td>
                 <td>${v.shelfposition}</td>
-                <td><input type="submit" class="btn btn-primary" value="加入" /></td>
+                <td><input type="submit" class="btn btn-primary" value="加入" onclick="window.location.href='<%=path%>/addgood/${goodid}/${goodamount}'" /></td>
 
         </tr>
         </c:forEach>
@@ -72,8 +72,8 @@
     总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
     <br/>
 
-    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum-1}'">上一页</button>
-    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum+1}'">下一页</button>
+    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum-1}/${goodid}/${goodamount}'">上一页</button>
+    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum+1}/${goodid}/${goodamount}'">下一页</button>
 
 
 </div>
