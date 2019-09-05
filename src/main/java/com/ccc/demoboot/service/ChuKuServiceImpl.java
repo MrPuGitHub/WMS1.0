@@ -17,8 +17,8 @@ public class ChuKuServiceImpl implements ChuKuService{
     ChuKuDanMapper chuKuDanMapper;
 
 
-    @Resource
-    InstoreMapper instoreMapper;
+//    @Resource
+//    InstoreMapper instoreMapper;
 
     //    查询所有的的出库单
     @Override
@@ -78,6 +78,9 @@ public class ChuKuServiceImpl implements ChuKuService{
         return chuKuDanMapper.selAllToCaiGou();
     }
 
+
+    //    给采购管理提供的方法
+//    返回根据入库单中商品id查询总数量的方法
     @Override
     public List<Instore> selAllRuKuGood(Integer goodId) {
         return chuKuDanMapper.selAllRuKuGood(goodId);

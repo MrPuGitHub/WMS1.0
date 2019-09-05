@@ -6,6 +6,7 @@ package com.ccc.demoboot.controller;
 
 
 import com.ccc.demoboot.domain.ChuKuDan;
+import com.ccc.demoboot.domain.InStoreToCaiGou;
 import com.ccc.demoboot.domain.Instore;
 import com.ccc.demoboot.domain.RuKuToCaiGou;
 import com.ccc.demoboot.httpClient.ChuKuClient;
@@ -35,6 +36,7 @@ import java.util.List;
 @Controller
 public class ChuKuController {
 
+    //注入ChuKuService
     @Resource(name="chuKuServiceImpl")
     private ChuKuService chuKuService;
 
@@ -46,6 +48,7 @@ public class ChuKuController {
     @RequestMapping("/chuku/{pageNum}/{md}")
     public String chuku(HttpServletRequest request, @PathVariable(value="pageNum") Integer pageNum,@PathVariable(value="md") String md){
 
+        
         if(pageNum <= 0){
             pageNum = 1;
         }
@@ -184,17 +187,23 @@ public class ChuKuController {
 
 
 
-    //给采购管理提供的方法
-    //返回根据入库单中商品id查询总数量的方法
+//    给采购管理提供的方法
+//    返回根据入库单中商品id查询总数量的方法
     @ResponseBody
     @RequestMapping("/selAllRuKuGood")
-    public Instore selAllRuKuGood(Integer goodId){
+    public InStoreToCaiGou selAllRuKuGood(Integer goodId){
 
 
         List<Instore> instores = chuKuService.selAllRuKuGood(goodId);
-        Instore instore = instores.get(1);
-
-        return instore;
+        if (instores.isEmpty()){
+            return null;
+        }else{
+            Instore instore = instores.get(0);
+            InStoreToCaiGou s = new InStoreToCaiGou();
+            s.setGoodid(goodId);
+            s.setInnum(instore.getInnum());
+            return s;
+        }
 
     }
 

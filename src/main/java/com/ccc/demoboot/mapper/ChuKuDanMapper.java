@@ -1,6 +1,7 @@
 package com.ccc.demoboot.mapper;
 
 import com.ccc.demoboot.domain.ChuKuDan;
+
 import com.ccc.demoboot.domain.Instore;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -37,7 +38,8 @@ public interface ChuKuDanMapper  extends Mapper<ChuKuDan> {
     //给采购的方法
     List<ChuKuDan> selAllToCaiGou();
 
-    //给采购的方法
+    //    给采购管理提供的方法
+//    返回根据入库单中商品id查询总数量的方法
     List<Instore> selAllRuKuGood(Integer goodId);
 
 

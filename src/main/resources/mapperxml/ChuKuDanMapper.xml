@@ -51,9 +51,10 @@
 
 
 
-  <!--提供给采购的,统计七天内商品id及其出库数量-->
+  <!--   给采购管理提供的方法
+    返回根据入库单中商品id查询总数量的方法-->
   <select id="selAllRuKuGood" resultType="com.ccc.demoboot.domain.Instore">
-    select * from instore
+    select innum from instore where goodid=#{goodId} GROUP BY goodid
   </select>
 
 </mapper>
