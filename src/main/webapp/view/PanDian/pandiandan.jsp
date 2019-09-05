@@ -23,8 +23,6 @@
         <span class="c-gray en">&gt;&gt;</span> 仓库管理
         <span class="c-gray en">&gt;&gt;</span> 盘点管理
 
-        <input type="submit" class="btn btn-primary" value="返回" onclick="window.open('pandian.jsp')"/>
-
     </nav>
 </h2>
 <div class="container">
