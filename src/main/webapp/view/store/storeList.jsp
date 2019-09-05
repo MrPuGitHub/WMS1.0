@@ -171,15 +171,15 @@
                 <th>入库人</th>
                 <th>入库状态</th>
                 <th>序列号</th>
-                <th>备注</th>
+<%--                <th>备注</th>--%>
             </tr>
             </thead>
             <tbody>
 
             <c:forEach items="${instoreList }" var="v" varStatus="vs">
                 <tr index="${vs.count-1 }">
-                    <td><input type="checkbox" name="${v.entryid}" class="itemSelect"></td>
-                    <td><a href="/store/detail/${v.entryid}">${v.entryid }</a></td>
+                    <td><input type="checkbox" name="${v.id}" class="itemSelect"></td>
+                    <td><a href="/store/detail/${v.id}">${v.id }</a></td>
                     <td>${v.intime}</td>
                     <td>总仓</td>
                     <td>200</td>
@@ -199,7 +199,8 @@
                         </td></c:otherwise>
                     </c:choose>
                     <td>${v.id}</td>
-                    <td data-inverted="" data-tooltip="${v.comment}" data-position="left center"><i class="info icon"></i></td>
+<%--                    备注信息--%>
+<%--                    <td data-inverted="" data-tooltip="${v.comment}" data-position="left center"><i class="info icon"></i></td>--%>
                 </tr>
             </c:forEach>
             </tbody>

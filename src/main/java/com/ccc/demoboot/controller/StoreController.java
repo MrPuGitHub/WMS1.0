@@ -60,7 +60,7 @@ public class StoreController {
 
     @RequestMapping(value = "/detail/{id}")
     public String storeDetail(HttpServletRequest request,Model model,@PathVariable(value = "id") Integer id){
-        Instore instore  = instoreService.selectById(id);
+        Instore instore  = instoreService.selectByPrimaryKey(id);
         String userName=instoreService.selectUsernameWithInstore(instore.getUserid());
         System.out.println(instore.getUserid());
         request.setAttribute("instore",instore);
