@@ -27,9 +27,10 @@ public class MrbController {
     @Resource(name = "mrbServiceImpl")
     MrbService mrbService;
 
-    @RequestMapping(value = "/addgood/{goodid}/{goodamount}")
-    public String addgood(HttpServletRequest request,@PathVariable(value = "goodid") Integer goodid,@PathVariable(value = "goodamount") Integer goodamount){
-        return "redirect:selAllMrb";
+    @RequestMapping(value = "/addgood/{goodid}/{goodamount}/{id}")
+    public String addgood(HttpServletRequest request,@PathVariable(value = "goodid") Integer goodid,@PathVariable(value = "goodamount") Integer goodamount,@PathVariable(value = "id") Integer id){
+        mrbService.addgood(goodid,goodamount,id);
+        return "mrb/mrbguanli";
     }
 
     @RequestMapping(value = "selAllMrb")

@@ -61,7 +61,7 @@
             <td>${v.goodamount}</td>
                 <td>${v.warehouseid}</td>
                 <td>${v.shelfposition}</td>
-                <td><input type="submit" class="btn btn-primary" value="加入" onclick="window.location.href='<%=path%>/addgood/${goodid}/${goodamount}'" /></td>
+                <td><input type="submit" class="btn btn-primary" value="加入" onclick="window.location.href='<%=path%>/addgood/${goodid}/${goodamount}/${v.id}'" /></td>
 
         </tr>
         </c:forEach>

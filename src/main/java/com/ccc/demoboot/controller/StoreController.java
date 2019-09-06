@@ -11,6 +11,7 @@ public class StoreController {
     public String main(){
         return "store/main";
     }
+
     @RequestMapping("/nav")
     public String nav(){
         return "store/nav";

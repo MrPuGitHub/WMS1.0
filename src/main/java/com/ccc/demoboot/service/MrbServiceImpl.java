@@ -36,5 +36,10 @@ public class MrbServiceImpl implements MrbService {
         return mrbMapper.selectAll();
     }
 
+    @Override
+    public void addgood(Integer goodId, Integer goodNum, Integer id) {
+        mrbMapper.addgood(goodId,goodNum,id);
+    }
+
 
 }

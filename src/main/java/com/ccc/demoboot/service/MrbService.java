@@ -13,4 +13,8 @@ public interface MrbService {
    List<Shelf> selAllShelf (Shelf shelf);
    List<Shelf> selectAllByGoodid(Integer goodid);
    List<Mrb> selectAllMrb();
+
+   //jiaru
+   void addgood(Integer goodId,Integer goodNum,Integer id);
+
 }
