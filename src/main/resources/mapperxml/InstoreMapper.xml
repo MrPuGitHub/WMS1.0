@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccc.demoboot.mapper.InstoreMapper">
-  <resultMap id="BaseResultMap" type="com.ccc.demoboot.domain.Instore">
-    <!--@mbg.generated-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="shelfid" jdbcType="VARCHAR" property="shelfid" />
-    <result column="goodid" jdbcType="VARCHAR" property="goodid" />
-    <result column="innum" jdbcType="INTEGER" property="innum" />
-    <result column="userid" jdbcType="INTEGER" property="userid" />
-    <result column="intime" jdbcType="VARCHAR" property="intime" />
-    <result column="state" jdbcType="VARCHAR" property="state" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, shelfid, goodid, innum, userid, intime, `state`
-  </sql>
+    <resultMap id="BaseResultMap" type="com.ccc.demoboot.domain.Instore">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="shelfid" jdbcType="VARCHAR" property="shelfid" />
+        <result column="goodid" jdbcType="VARCHAR" property="goodid" />
+        <result column="innum" jdbcType="INTEGER" property="innum" />
+        <result column="userid" jdbcType="INTEGER" property="userid" />
+        <result column="intime" jdbcType="VARCHAR" property="intime" />
+        <result column="state" jdbcType="VARCHAR" property="state" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, shelfid, goodid, innum, userid, intime, `state`
+    </sql>
 
     <select id="selectByAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         <!--@mbg.generated-->
@@ -29,10 +29,10 @@
 
     </select>
 
-<!--    <delete id="deleteMutiId" parameterType="list">-->
-<!--        DELETE FROM instore WHERE id IN(#{})-->
-<!--        -->
-<!--    </delete>-->
+    <!--    <delete id="deleteMutiId" parameterType="list">-->
+    <!--        DELETE FROM instore WHERE id IN(#{})-->
+    <!--        -->
+    <!--    </delete>-->
 
 
 </mapper>

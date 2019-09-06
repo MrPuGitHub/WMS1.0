@@ -28,13 +28,14 @@
         <td><input type="checkbox"/></td>
 
         <td>退货单编号</td>
-        <td>订单编号</td>
         <td>退货时间</td>
-        2<td>商品编号</td>
+        <td>商品编号</td>
         <td>商品数量</td>
-        1<td>经办人编号</td>
-        3
+        <td>经办人编号</td>
         <td>退货原因</td>
+        <td>订单编号</td>
+        <td>是否二次销售</td>
+        <td>状态</td>
         <td>操作</td>
 
     </tr>
@@ -47,6 +48,8 @@
         <td>goodamount</td>
         <td>userid</td>
         <td>description</td>
+        <td>cansel</td>
+        <td>state</td>
         <td><input type="submit" class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/1'" value="操作"/></td>
     </tr>
     <%--遍历获取到的发货单集合fhList开始--%>
@@ -54,12 +57,15 @@
         <c:forEach items="${Mrb}" var="v" varStatus="vs">
         <td><input type="checkbox"/></td>
         <td>${v.id}</td>
-        <td>${v.orderid}</td>
+
             <td>${v.outtime}</td>
             <td>${v.goodid}</td>
             <td>${v.goodamount}</td>
             <td>${v.userid}</td>
             <td>${v.description}</td>
+            <td>${v.orderid}</td>
+            <td>${v.cansel}</td>
+            <td>${v.state}</td>
 
             <td><input type="submit" class="btn btn-primary" value="操作" onclick="window.location.href='<%=path%>/selAllShelf/1/${v.goodid}/${v.goodamount}'"/></td>
     </tr>

@@ -29,7 +29,13 @@ public class MrbController {
 
     @RequestMapping(value = "/addgood/{goodid}/{goodamount}/{id}")
     public String addgood(HttpServletRequest request,@PathVariable(value = "goodid") Integer goodid,@PathVariable(value = "goodamount") Integer goodamount,@PathVariable(value = "id") Integer id){
+
+        //清除session中的addSuccess属性
+        request.getSession().removeAttribute("addSuccess");
+        //将商品编号为goodid的goodamount件商品加入货架
         mrbService.addgood(goodid,goodamount,id);
+        //加入货架成功后设置 addSuccess属性值为"加入成功"
+        request.getSession().setAttribute("addSuccess","加入成功");
         return "mrb/mrbguanli";
     }
 

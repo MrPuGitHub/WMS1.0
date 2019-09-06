@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ccc.demoboot.mapper.MrbMapper">
-
-
     <select id="addgood">
 
-        UPDATE shelf set goodId=#{param1},goodamount=#{param2}+ihkgoodamount WHERE id = #{param3}
+        UPDATE shelf set goodId=#{param1},goodamount=#{param2} WHERE id = #{param3}
 
     </select>
 
+
+    <select id="selAllMrbByOrderid" resultType="com.ccc.demoboot.domain.Mrb">
+        select * from mrb where orderid = #{orderId}
+    </select>
 </mapper>
