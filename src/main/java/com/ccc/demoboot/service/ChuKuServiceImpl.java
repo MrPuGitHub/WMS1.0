@@ -3,8 +3,10 @@ package com.ccc.demoboot.service;
 
 import com.ccc.demoboot.domain.ChuKuDan;
 import com.ccc.demoboot.domain.Instore;
+import com.ccc.demoboot.domain.Mrb;
 import com.ccc.demoboot.mapper.ChuKuDanMapper;
 import com.ccc.demoboot.mapper.InstoreMapper;
+import com.ccc.demoboot.mapper.MrbMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,6 +17,9 @@ public class ChuKuServiceImpl implements ChuKuService{
 
     @Resource
     ChuKuDanMapper chuKuDanMapper;
+
+    @Resource
+    MrbMapper mrbMapper;
 
 
 //    @Resource
@@ -84,6 +89,16 @@ public class ChuKuServiceImpl implements ChuKuService{
     @Override
     public List<Instore> selAllRuKuGood(Integer goodId) {
         return chuKuDanMapper.selAllRuKuGood(goodId);
+    }
+
+    @Override
+    public List<Mrb> selAllMrb() {
+        return mrbMapper.selectAll();
+    }
+
+    @Override
+    public List<Mrb> selAllMrbByOrderid(Integer orderId) {
+        return mrbMapper.selAllMrbByOrderid(orderId);
     }
 
 }
