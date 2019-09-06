@@ -13,6 +13,8 @@ public class Instore {
 
     private String intime;
 
+    private String state;
+
     public Integer getId() {
         return id;
     }
@@ -59,5 +61,13 @@ public class Instore {
 
     public void setIntime(String intime) {
         this.intime = intime;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }
