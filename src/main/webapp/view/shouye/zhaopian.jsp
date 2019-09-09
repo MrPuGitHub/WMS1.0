@@ -15,8 +15,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>  
     <title>无标题页</title>  
-    <style type="text/css">  
-        .code
+    <style type="text/css">
         {
             background-image:url(<%=path%>/img/code.jpg);
             font-family:Arial;

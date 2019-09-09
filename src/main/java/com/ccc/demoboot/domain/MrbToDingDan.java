@@ -2,60 +2,42 @@ package com.ccc.demoboot.domain;
 
 import java.util.Date;
 
-public class Mrb {
+public class MrbToDingDan {
 
     /**
-    * 退货单id
-    */
-    private Integer id;
-
-    /**
-    * 退货时间
-    */
-    private Date outtime;
-
-    /**
-    * 商品id
-    */
+     * 商品id
+     */
     private Integer goodid;
 
     /**
-    * 商品数量
-    */
+     * 商品数量
+     */
     private Integer goodamount;
 
     /**
-    * 经办人id
-    */
-    private Integer userid;
-
-    /**
-    * 描述(退货原因)
-    */
+     * 描述(退货原因)
+     */
     private String description;
 
     private Integer orderid;
 
-    private Integer cansel;
+    private int cansel;
 
     private String state;
 
+
     private Integer warehouseid;
 
-    public Integer getId() {
-        return id;
+    public void setCansel(int cansel) {
+        this.cansel = cansel;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getWarehouseid() {
+        return warehouseid;
     }
 
-    public Date getOuttime() {
-        return outtime;
-    }
-
-    public void setOuttime(Date outtime) {
-        this.outtime = outtime;
+    public void setWarehouseid(Integer warehouseid) {
+        this.warehouseid = warehouseid;
     }
 
     public Integer getGoodid() {
@@ -74,13 +56,7 @@ public class Mrb {
         this.goodamount = goodamount;
     }
 
-    public Integer getUserid() {
-        return userid;
-    }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
 
     public String getDescription() {
         return description;
@@ -114,11 +90,4 @@ public class Mrb {
         this.state = state;
     }
 
-    public Integer getWarehouseid() {
-        return warehouseid;
-    }
-
-    public void setWarehouseid(Integer warehouseid) {
-        this.warehouseid = warehouseid;
-    }
 }

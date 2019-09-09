@@ -10,7 +10,13 @@
     <title>退货货架</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.js"></script>
-<br/>
+
+    <script type="text/javascript">
+            function add() {
+                alert("加入成功");
+            }
+
+    </script>
 
 </head>
 <body>
@@ -20,7 +26,7 @@
 </h2>
 <br/>
 <br/>
-<form class="form-horizontal" action="<%=path%>/selAllShelf/1">
+<form class="form-horizontal" action="<%=path%>/selAllShelf/1/0/0">
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">商品编号</label>
         <div class="col-sm-5">
@@ -61,7 +67,7 @@
             <td>${v.goodamount}</td>
                 <td>${v.warehouseid}</td>
                 <td>${v.shelfposition}</td>
-                <td><input type="submit" class="btn btn-primary" value="加入"/></td>
+                <td><input type="submit" class="btn btn-primary" value="加入" onclick="window.location.href='<%=path%>/addgood/${goodid}/${goodamount}/${v.id}',add()" /></td>
 
         </tr>
         </c:forEach>
@@ -72,8 +78,8 @@
     总记录${pageInfo.total}条,共${pageInfo.pages}页,当前页${pageInfo.pageNum}
     <br/>
 
-    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum-1}'">上一页</button>
-    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum+1}'">下一页</button>
+    <button  class="btn btn-primary" onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum-1}/${goodid}/${goodamount}'">上一页</button>
+    <button  class="btn btn-primary"  onclick="window.location.href='<%=path%>/selAllShelf/${pageInfo.pageNum+1}/${goodid}/${goodamount}'">下一页</button>
 
 
 </div>
