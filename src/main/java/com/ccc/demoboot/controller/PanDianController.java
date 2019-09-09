@@ -17,6 +17,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -44,17 +45,29 @@ public class PanDianController {
      */
 
     @RequestMapping(value = "/pandian/{pagenum}")
-    public String pandian(HttpServletRequest req,Pandian pd, @PathVariable(value = "pagenum") int pagenum) {
-        int pagesize=new Compagesize().getPagesize();
-        PageHelper.startPage(pagenum,pagesize);
+    public String pandian(HttpServletRequest req, Pandian pd, @PathVariable(value = "pagenum") int pagenum) {
+        int pagesize = new Compagesize().getPagesize();
+        PageHelper.startPage(pagenum, pagesize);
 
         List<Pandian> pandianlist = pandianService.selectAllPanDian(pd);
-        PageInfo pageInfo=new PageInfo(pandianlist);
+        PageInfo pageInfo = new PageInfo(pandianlist);
         req.setAttribute("pandianlist", pandianlist);
         req.setAttribute("pageinfo", pageInfo);
         return "PanDian/pandian";
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/cangku")
+    public List<Warehouse> cangku(HttpServletRequest req) {
+
+        List<Warehouse> cagkuList = warehouseService.selectAllWarehouse();
+
+        for (Warehouse cangku : cagkuList) {
+            System.out.println(cangku.getId() + "\t" + cangku.getWarehouseName());
+        }
+        return cagkuList;
+    }
 
     /**
      * 查询获取下拉框里面的内容
@@ -69,7 +82,9 @@ public class PanDianController {
 
         List<Pandian> pandianList = pandianService.selectAllPanDian();
 
-        System.out.println(warehouseList.get(0).getWarehouseName());
+        for (Warehouse cangku : warehouseList) {
+            System.out.println(cangku.getId() + "\t" + cangku.getWarehouseName());
+        }
 
         req.setAttribute("warehouseList", warehouseList);
         req.setAttribute("shelfList", shelfList);
