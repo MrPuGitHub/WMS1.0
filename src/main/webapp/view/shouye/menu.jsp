@@ -27,7 +27,7 @@
 <h3 style="text-align: center"><a href="view/mrb/mrbguanli.jsp" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/tuihuo.jpg"style="height: 35px;">退货管理</a></h3>
 <h2 style="margin-left: 25px">管理</h2>
 <h3 style="text-align: center"><a href="http://localhost:8095/pandian/1" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/pandian.jpg"style="height: 35px;">盘点</a></h3>
-<h3 style="text-align: center"><a href="http://localhost:8095/view/stat_query/stat_query.jsp" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/tongji.jpg"style="height: 35px;">统计查询</a></h3>
+<h3 style="text-align: center"><a href="http://localhost:8095/stat_query" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/tongji.jpg"style="height: 35px;">统计查询</a></h3>
 <h3 style="text-align: center"><a href="http://localhost:8095/tubiao" target="main" class="btn btn-info" role="button"><img src="<%=path%>/img/yuangong.jpg"style="height: 35px;">员工绩效统计</a></h3>
 </div>
 </body>

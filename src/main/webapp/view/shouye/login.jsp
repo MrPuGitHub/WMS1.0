@@ -20,11 +20,13 @@
         #exampleInputEmail1{
             width: 250px;
             height: 50px;
+            font-size: 20px;
         }
 
         #exampleInputPassword1{
             width: 250px;
             height: 50px;
+            font-size: 20px;
         }
 
         #span{
@@ -69,7 +71,7 @@
 
     </div>
     </div>
-    <button type="submit" class="btn btn-default">登陆</button>
+    <button style="margin-left: 70px;font-size: 22px" type="submit" class="btn btn-default btn-lg">登陆</button>
 
 </form>
 </body>

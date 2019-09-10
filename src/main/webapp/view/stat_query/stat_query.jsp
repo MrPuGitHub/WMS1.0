@@ -17,6 +17,16 @@
     <title>统计查询</title>
 </head>
 <body>
-<div style="text-align: center"><img style="margin-top: 230px" src="<%=path%>/img/stat_query.jpg"/></div>
+<div style="text-align: center">
+    <a href="http://localhost:8095/outgoods">
+        <img style="margin-top: 230px" src="<%=path%>/img/Outbound_goods.png"/>
+    </a>
+    <a href="http://localhost:8095/ingoods">
+        <img style="margin-top: 260px;margin-left: 20px" src="<%=path%>/img/Incoming_goods.png"/>
+    </a>
+    <a href="http://localhost:8095/warehousequery">
+        <img style="margin-top: 260px;margin-left: 20px" src="<%=path%>/img/Warehouse_stat.png"/>
+    </a>
+</div>
 </body>
 </html>
