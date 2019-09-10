@@ -1,12 +1,15 @@
 package com.ccc.demoboot.domain;
 
+
+
+import javax.persistence.Id;
 import java.util.Date;
 
 public class Mrb {
-
     /**
     * 退货单id
     */
+    @Id
     private Integer id;
 
     /**
@@ -35,12 +38,6 @@ public class Mrb {
     private String description;
 
     private Integer orderid;
-
-    private Integer cansel;
-
-    private String state;
-
-    private Integer warehouseid;
 
     public Integer getId() {
         return id;
@@ -96,29 +93,5 @@ public class Mrb {
 
     public void setOrderid(Integer orderid) {
         this.orderid = orderid;
-    }
-
-    public Integer getCansel() {
-        return cansel;
-    }
-
-    public void setCansel(Integer cansel) {
-        this.cansel = cansel;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public Integer getWarehouseid() {
-        return warehouseid;
-    }
-
-    public void setWarehouseid(Integer warehouseid) {
-        this.warehouseid = warehouseid;
     }
 }

@@ -5,7 +5,7 @@ package com.ccc.demoboot.controller;
 
 
 
-import com.ccc.demoboot.domain.*;
+import com.ccc.demoboot.domain.ChuKuDan;
 import com.ccc.demoboot.httpClient.ChuKuClient;
 import com.ccc.demoboot.service.ChuKuService;
 import com.ccc.demoboot.toCaiGou.ChuKuDanToCaiGou;
@@ -33,18 +33,14 @@ import java.util.List;
 @Controller
 public class ChuKuController {
 
-    //注入ChuKuService
     @Resource(name="chuKuServiceImpl")
     private ChuKuService chuKuService;
-
-
 
 
     //    出库列表页面
 //    md代表查询方式
     @RequestMapping("/chuku/{pageNum}/{md}")
     public String chuku(HttpServletRequest request, @PathVariable(value="pageNum") Integer pageNum,@PathVariable(value="md") String md){
-
 
         if(pageNum <= 0){
             pageNum = 1;
@@ -179,93 +175,6 @@ public class ChuKuController {
         return listc;
 
     }
-
-
-
-
-
-//    给采购管理提供的方法
-//    返回根据入库单中商品id查询总数量的方法
-    @ResponseBody
-    @RequestMapping("/selAllRuKuGood")
-    public InStoreToCaiGou selAllRuKuGood(Integer goodId){
-
-
-        List<Instore> instores = chuKuService.selAllRuKuGood(goodId);
-        if (instores.isEmpty()){
-            return null;
-        }else{
-            Instore instore = instores.get(0);
-            InStoreToCaiGou s = new InStoreToCaiGou();
-            s.setGoodid(goodId);
-            s.setInnum(instore.getInnum());
-            return s;
-        }
-
-    }
-
-
-
-
-
-
-    //给订单管理提供的方法
-    //查询全部退货单中的退货状态,退货原因,是否可二次销售,商品所属订单编号,商品编号及数量
-    @ResponseBody
-    @RequestMapping("/selAllMrb2")
-    public List<MrbToDingDan> selMrb(){
-
-        List<Mrb> mrbs = chuKuService.selAllMrb();
-        List<MrbToDingDan> mrbToDingDans = new ArrayList<>();
-
-        for (Mrb m : mrbs){
-            MrbToDingDan mrbToDingDan = new MrbToDingDan();
-            mrbToDingDan.setOrderid(m.getOrderid());
-            mrbToDingDan.setState(m.getState());
-            mrbToDingDan.setDescription(m.getDescription());
-            mrbToDingDan.setGoodamount(m.getGoodamount());
-            mrbToDingDan.setGoodid(m.getGoodid());
-            mrbToDingDan.setCansel(m.getCansel());
-            mrbToDingDan.setWarehouseid(m.getWarehouseid());
-
-            mrbToDingDans.add(mrbToDingDan);
-        }
-
-        return mrbToDingDans;
-
-    }
-
-
-
-
-
-
-    //给订单管理提供的方法
-    //根据退货的订单id查询退货单中的退货状态,退货原因,是否可二次销售,商品所属订单编号,商品编号及数量
-    @ResponseBody
-    @RequestMapping("/selAllMrbByOrderid")
-    public List<MrbToDingDan> selAllMrbByOrderid(Integer orderId){
-
-        List<Mrb> mrbs = chuKuService.selAllMrbByOrderid(orderId);
-        List<MrbToDingDan> mrbToDingDans = new ArrayList<>();
-
-        for (Mrb m : mrbs){
-            MrbToDingDan mrbToDingDan = new MrbToDingDan();
-            mrbToDingDan.setOrderid(m.getOrderid());
-            mrbToDingDan.setState(m.getState());
-            mrbToDingDan.setDescription(m.getDescription());
-            mrbToDingDan.setGoodamount(m.getGoodamount());
-            mrbToDingDan.setGoodid(m.getGoodid());
-            mrbToDingDan.setCansel(m.getCansel());
-            mrbToDingDan.setWarehouseid(m.getWarehouseid());
-
-            mrbToDingDans.add(mrbToDingDan);
-        }
-
-        return mrbToDingDans;
-
-    }
-
 
 
 }

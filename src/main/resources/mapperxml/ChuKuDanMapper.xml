@@ -48,13 +48,4 @@
     select goodid,outnum,state,outtime from chu_ku_dan  where state != '测试调度' and DATE_SUB(CURDATE(),INTERVAL 7 DAY) &lt;= DATE(outtime) GROUP BY chukuid
   </select>
 
-
-
-
-  <!--   给采购管理提供的方法
-    返回根据入库单中商品id查询总数量的方法-->
-  <select id="selAllRuKuGood" resultType="com.ccc.demoboot.domain.Instore">
-    select innum from instore where goodid=#{goodId} GROUP BY goodid
-  </select>
-
 </mapper>

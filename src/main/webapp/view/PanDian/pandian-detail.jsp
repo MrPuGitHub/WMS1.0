@@ -27,6 +27,7 @@
                 <span class="c-gray en">&gt;&gt;</span> 盘点管理
                 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
                    onclick="$('#main-content').jqprint()" title="打印">打印</a>
+                <input type="submit" class="btn btn-primary" value="返回" onclick="window.open('pandian.jsp')"/>
 
             </nav>
         </h2>
@@ -68,6 +69,32 @@
         </tr>
     </c:forEach>
 </table>
+
+<div style="text-align: center;">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li><a href="javascript:void(0)" aria-label="Previous" onclick="window.location.href='<%=path%>/panyinpankui/1'"> <span
+                    aria-hidden="true">首页</span>
+            </a></li>
+
+            <c:forEach items="${pageInfo.getNavigatepageNums()}" var="v">
+                <c:choose>
+                    <c:when test="${v==pageInfo.pageNum}">
+                        <li><a href="" onclick="window.location.href='<%=path%>/panyinpankui/${v}'"
+                               style="background-color: #5bc0de;">${v }</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="javascript:void(0)" onclick="window.location.href='<%=path%>/panyinpankui/${v}'">${v }</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+            <li><a onclick="window.location.href='<%=path%>/panyinpankui/${pageInfo.pages}'" href="javascript:void(0)" aria-label="Next"> <span
+                    aria-hidden="true">末页</span>
+            </a></li>
+        </ul>
+    </nav>
+</div>
 
 </body>
 </html>
